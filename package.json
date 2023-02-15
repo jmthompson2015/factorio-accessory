@@ -1,0 +1,28 @@
+{
+  "name": "factorio-accessory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmthompson2015/factorio-accessory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmthompson2015/factorio-accessory/issues"
+  },
+  "homepage": "https://github.com/jmthompson2015/factorio-accessory#readme",
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.1.0"
+  },
+  "dependencies": {
+    "ramda": "^0.28.0"
+  }
+}

@@ -2,12 +2,12 @@
 
 ## Graphs
 
-[Everything](dist/everything.png)
-[Flying Robot Frame](dist/flying_robot_frame.png)
-[Inserters](dist/inserters.png)
-[Oil Processing](dist/oil_processing.png)
-[Solar Power](dist/solar_power.png)
-[Transport Belts](dist/transport_belts.png)
+-   [Everything](dist/everything.png)
+-   [Flying Robot Frame](dist/flying_robot_frame.png)
+-   [Inserters](dist/inserters.png)
+-   [Oil Processing](dist/oil_processing.png)
+-   [Solar Power](dist/solar_power.png)
+-   [Transport Belts](dist/transport_belts.png)
 
 ### Science Packs
 

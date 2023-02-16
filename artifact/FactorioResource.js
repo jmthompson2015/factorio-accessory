@@ -33,6 +33,7 @@ const FactorioResource = {
 	coal: {
 		name: "Coal",
 		image: "icons/Coal.png",
+		isBus: true,
 		isMap: true,
 	},
 	copper_cable: {

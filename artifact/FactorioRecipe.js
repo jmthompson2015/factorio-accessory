@@ -30,7 +30,7 @@ const FactorioRecipe = {
 	automation_science_pack: {
 		inputs: [
 			{ amount: 1, resourceKey: "copper_plate" },
-			{ resourceKey: "iron_gear_wheel" },
+			{ amount: 1, resourceKey: "iron_gear_wheel" },
 		],
 		outputs: [{ amount: 1, resourceKey: "automation_science_pack" }],
 	},
@@ -55,7 +55,7 @@ const FactorioRecipe = {
 			{ amount: 2, resourceKey: "engine_unit" },
 			{ amount: 1, resourceKey: "sulfur" },
 		],
-		outputs: [{ amount: 1, resourceKey: "chemical_science_pack" }],
+		outputs: [{ amount: 2, resourceKey: "chemical_science_pack" }],
 	},
 	copper_cable: {
 		inputs: [{ amount: 1, resourceKey: "copper_plate" }],
@@ -226,7 +226,7 @@ const FactorioRecipe = {
 			{ amount: 5, resourceKey: "plastic_bar" },
 			{ amount: 2, resourceKey: "steel_plate" },
 		],
-		outputs: [{ amount: 1, resourceKey: "military_science_pack" }],
+		outputs: [{ amount: 1, resourceKey: "low_density_structure" }],
 	},
 	lubricant: {
 		inputs: [{ amount: 10, resourceKey: "heavy_oil" }],
@@ -238,7 +238,7 @@ const FactorioRecipe = {
 			{ amount: 1, resourceKey: "piercing_rounds_magazine" },
 			{ amount: 1, resourceKey: "wall" },
 		],
-		outputs: [{ amount: 1, resourceKey: "military_science_pack" }],
+		outputs: [{ amount: 2, resourceKey: "military_science_pack" }],
 	},
 	petroleum_gas: {
 		inputs: [
@@ -280,7 +280,7 @@ const FactorioRecipe = {
 			{ amount: 1, resourceKey: "productivity_module_1" },
 			{ amount: 30, resourceKey: "rail" },
 		],
-		outputs: [{ amount: 1, resourceKey: "production_science_pack" }],
+		outputs: [{ amount: 3, resourceKey: "production_science_pack" }],
 	},
 	productivity_module_1: {
 		inputs: [
@@ -387,7 +387,7 @@ const FactorioRecipe = {
 			{ amount: 3, resourceKey: "low_density_structure" },
 			{ amount: 2, resourceKey: "processing_unit" },
 		],
-		outputs: [{ amount: 1, resourceKey: "utility_science_pack" }],
+		outputs: [{ amount: 3, resourceKey: "utility_science_pack" }],
 	},
 	wall: {
 		inputs: [{ amount: 5, resourceKey: "stone_brick" }],

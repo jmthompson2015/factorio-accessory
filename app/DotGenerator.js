@@ -207,7 +207,12 @@ const allFlags = {
 // ////////////////////////////////////////////////////////////////////////////
 generate("automation_science_pack", allFlags);
 generate("logistic_science_pack", allFlags);
-generate("military_science_pack", allFlags);
+generate("military_science_pack", {
+	isBusBox: true,
+	isBusStop: true,
+	isLeafSame: true,
+	isOrtho: true,
+});
 generate("chemical_science_pack", allFlags);
 generate("production_science_pack", {
 	isBusBox: true,

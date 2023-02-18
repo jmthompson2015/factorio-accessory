@@ -1,3 +1,5 @@
+// Images from https://wiki.factorio.com/Category:Game_images
+
 /* eslint no-console: ["error", { allow: ["info"] }] */
 
 const FactorioResource = {
@@ -10,6 +12,18 @@ const FactorioResource = {
 		image: "icons/Advanced_circuit.png",
 		color: "red",
 		isBus: true,
+	},
+	assembling_machine_1: {
+		name: "Assembling Machine 1",
+		image: "icons/Assembling_machine_1.png",
+	},
+	assembling_machine_2: {
+		name: "Assembling Machine 2",
+		image: "icons/Assembling_machine_2.png",
+	},
+	assembling_machine_3: {
+		name: "Assembling Machine 3",
+		image: "icons/Assembling_machine_3.png",
 	},
 	automation_science_pack: {
 		name: "Automation Science Pack",
@@ -24,6 +38,14 @@ const FactorioResource = {
 	burner_inserter: {
 		name: "Burner Inserter",
 		image: "icons/Burner_inserter.png",
+	},
+	burner_mining_drill: {
+		name: "Burner Mining Drill",
+		image: "icons/Burner_mining_drill.png",
+	},
+	cargo_wagon: {
+		name: "Cargo Wagon",
+		image: "icons/Cargo_wagon.png",
 	},
 	chemical_science_pack: {
 		name: "Chemical Science Pack",
@@ -63,6 +85,10 @@ const FactorioResource = {
 	electric_furnace: {
 		name: "Electric Furnace",
 		image: "icons/Electric_furnace.png",
+	},
+	electric_mining_drill: {
+		name: "Electric Mining Drill",
+		image: "icons/Electric_mining_drill.png",
 	},
 	electronic_circuit: {
 		name: "Electronic Circuit",
@@ -109,6 +135,10 @@ const FactorioResource = {
 	firearm_magazine: {
 		name: "Firearm Magazine",
 		image: "icons/Firearm_magazine.png",
+	},
+	fluid_wagon: {
+		name: "Fluid Wagon",
+		image: "icons/Fluid_wagon.png",
 	},
 	flying_robot_frame: {
 		name: "Flying Robot Frame",
@@ -224,6 +254,10 @@ const FactorioResource = {
 		name: "Solid Fuel",
 		image: "icons/Solid_fuel.png",
 	},
+	speed_module_1: {
+		name: "Speed Module 1",
+		image: "icons/Speed_module.png",
+	},
 	splitter: {
 		name: "Splitter",
 		image: "icons/Splitter.png",
@@ -235,6 +269,10 @@ const FactorioResource = {
 	stack_inserter: {
 		name: "Stack Inserter",
 		image: "icons/Stack_inserter.png",
+	},
+	steel_furnace: {
+		name: "Steel Furnace",
+		image: "icons/Steel_furnace.png",
 	},
 	steel_plate: {
 		name: "Steel Plate",
@@ -251,6 +289,14 @@ const FactorioResource = {
 		name: "Stone Brick",
 		image: "icons/Stone_brick.png",
 		isBus: true,
+	},
+	stone_furnace: {
+		name: "Stone Furnace",
+		image: "icons/Stone_furnace.png",
+	},
+	storage_tank: {
+		name: "Storage Tank",
+		image: "icons/Storage_tank.png",
 	},
 	sulfur: {
 		name: "Sulfur",

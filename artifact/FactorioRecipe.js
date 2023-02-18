@@ -27,6 +27,30 @@ const FactorioRecipe = {
 			{ amount: 55, resourceKey: "petroleum_gas" },
 		],
 	},
+	assembling_machine_1: {
+		inputs: [
+			{ amount: 3, resourceKey: "electronic_circuit" },
+			{ amount: 5, resourceKey: "iron_gear_wheel" },
+			{ amount: 9, resourceKey: "iron_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "assembling_machine_1" }],
+	},
+	assembling_machine_2: {
+		inputs: [
+			{ amount: 1, resourceKey: "assembling_machine_1" },
+			{ amount: 3, resourceKey: "electronic_circuit" },
+			{ amount: 5, resourceKey: "iron_gear_wheel" },
+			{ amount: 2, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "assembling_machine_2" }],
+	},
+	assembling_machine_3: {
+		inputs: [
+			{ amount: 2, resourceKey: "assembling_machine_2" },
+			{ amount: 4, resourceKey: "speed_module_1" },
+		],
+		outputs: [{ amount: 1, resourceKey: "assembling_machine_3" }],
+	},
 	automation_science_pack: {
 		inputs: [
 			{ amount: 1, resourceKey: "copper_plate" },
@@ -48,6 +72,22 @@ const FactorioRecipe = {
 			{ amount: 1, resourceKey: "iron_plate" },
 		],
 		outputs: [{ amount: 1, resourceKey: "burner_inserter" }],
+	},
+	burner_mining_drill: {
+		inputs: [
+			{ amount: 3, resourceKey: "iron_gear_wheel" },
+			{ amount: 3, resourceKey: "iron_plate" },
+			{ amount: 1, resourceKey: "stone_furnace" },
+		],
+		outputs: [{ amount: 1, resourceKey: "burner_mining_drill" }],
+	},
+	cargo_wagon: {
+		inputs: [
+			{ amount: 10, resourceKey: "iron_gear_wheel" },
+			{ amount: 20, resourceKey: "iron_plate" },
+			{ amount: 20, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "cargo_wagon" }],
 	},
 	chemical_science_pack: {
 		inputs: [
@@ -80,6 +120,14 @@ const FactorioRecipe = {
 			{ amount: 10, resourceKey: "stone_brick" },
 		],
 		outputs: [{ amount: 1, resourceKey: "electric_furnace" }],
+	},
+	electric_mining_drill: {
+		inputs: [
+			{ amount: 3, resourceKey: "electronic_circuit" },
+			{ amount: 5, resourceKey: "iron_gear_wheel" },
+			{ amount: 10, resourceKey: "iron_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "electric_mining_drill" }],
 	},
 	electronic_circuit: {
 		inputs: [
@@ -161,6 +209,15 @@ const FactorioRecipe = {
 	firearm_magazine: {
 		inputs: [{ amount: 4, resourceKey: "iron_plate" }],
 		outputs: [{ amount: 1, resourceKey: "firearm_magazine" }],
+	},
+	fluid_wagon: {
+		inputs: [
+			{ amount: 10, resourceKey: "iron_gear_wheel" },
+			{ amount: 8, resourceKey: "pipe" },
+			{ amount: 16, resourceKey: "steel_plate" },
+			{ amount: 1, resourceKey: "storage_tank" },
+		],
+		outputs: [{ amount: 1, resourceKey: "fluid_wagon" }],
 	},
 	flying_robot_frame: {
 		inputs: [
@@ -344,6 +401,13 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "stack_filter_inserter" }],
 	},
+	steel_furnace: {
+		inputs: [
+			{ amount: 6, resourceKey: "steel_plate" },
+			{ amount: 10, resourceKey: "stone_brick" },
+		],
+		outputs: [{ amount: 1, resourceKey: "steel_furnace" }],
+	},
 	steel_plate: {
 		inputs: [{ amount: 5, resourceKey: "iron_plate" }],
 		outputs: [{ amount: 1, resourceKey: "steel_plate" }],
@@ -351,6 +415,17 @@ const FactorioRecipe = {
 	stone_brick: {
 		inputs: [{ amount: 2, resourceKey: "stone" }],
 		outputs: [{ amount: 1, resourceKey: "stone_brick" }],
+	},
+	stone_furnace: {
+		inputs: [{ amount: 5, resourceKey: "stone" }],
+		outputs: [{ amount: 1, resourceKey: "stone_furnace" }],
+	},
+	storage_tank: {
+		inputs: [
+			{ amount: 20, resourceKey: "iron_plate" },
+			{ amount: 5, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "storage_tank" }],
 	},
 	sulfur: {
 		inputs: [

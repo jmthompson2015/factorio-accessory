@@ -105,6 +105,29 @@ const FactorioRecipe = {
 		inputs: [{ amount: 1, resourceKey: "copper_ore" }],
 		outputs: [{ amount: 1, resourceKey: "copper_plate" }],
 	},
+	efficiency_module_1: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "electronic_circuit" },
+		],
+		outputs: [{ amount: 1, resourceKey: "efficiency_module_1" }],
+	},
+	efficiency_module_2: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 4, resourceKey: "efficiency_module_1" },
+			{ amount: 5, resourceKey: "processing_unit" },
+		],
+		outputs: [{ amount: 1, resourceKey: "efficiency_module_2" }],
+	},
+	efficiency_module_3: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "efficiency_module_2" },
+			{ amount: 5, resourceKey: "processing_unit" },
+		],
+		outputs: [{ amount: 1, resourceKey: "efficiency_module_3" }],
+	},
 	electric_engine_unit: {
 		inputs: [
 			{ amount: 2, resourceKey: "electronic_circuit" },
@@ -346,6 +369,22 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "productivity_module_1" }],
 	},
+	productivity_module_2: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "processing_unit" },
+			{ amount: 4, resourceKey: "productivity_module_1" },
+		],
+		outputs: [{ amount: 1, resourceKey: "productivity_module_2" }],
+	},
+	productivity_module_3: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "electronic_circuit" },
+			{ amount: 5, resourceKey: "productivity_module_2" },
+		],
+		outputs: [{ amount: 1, resourceKey: "productivity_module_3" }],
+	},
 	rail: {
 		inputs: [
 			{ amount: 1, resourceKey: "iron_stick" },
@@ -376,6 +415,29 @@ const FactorioRecipe = {
 	solid_fuel_2: {
 		inputs: [{ amount: 20, resourceKey: "petroleum_gas" }],
 		outputs: [{ amount: 1, resourceKey: "solid_fuel" }],
+	},
+	speed_module_1: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "electronic_circuit" },
+		],
+		outputs: [{ amount: 1, resourceKey: "speed_module_1" }],
+	},
+	speed_module_2: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "processing_unit" },
+			{ amount: 4, resourceKey: "speed_module_1" },
+		],
+		outputs: [{ amount: 1, resourceKey: "speed_module_2" }],
+	},
+	speed_module_3: {
+		inputs: [
+			{ amount: 5, resourceKey: "advanced_circuit" },
+			{ amount: 5, resourceKey: "processing_unit" },
+			{ amount: 5, resourceKey: "speed_module_2" },
+		],
+		outputs: [{ amount: 1, resourceKey: "speed_module_3" }],
 	},
 	splitter: {
 		inputs: [

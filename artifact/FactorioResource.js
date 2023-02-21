@@ -78,6 +78,18 @@ const FactorioResource = {
 		isFluid: true,
 		isMap: true,
 	},
+	efficiency_module_1: {
+		name: "Efficiency Module 1",
+		image: "icons/Efficiency_module.png",
+	},
+	efficiency_module_2: {
+		name: "Efficiency Module 2",
+		image: "icons/Efficiency_module_2.png",
+	},
+	efficiency_module_3: {
+		name: "Efficiency Module 3",
+		image: "icons/Efficiency_module_3.png",
+	},
 	electric_engine_unit: {
 		name: "Electric Engine Unit",
 		image: "icons/Electric_engine_unit.png",
@@ -238,6 +250,14 @@ const FactorioResource = {
 		name: "Productivity Module 1",
 		image: "icons/Productivity_module.png",
 	},
+	productivity_module_2: {
+		name: "Productivity Module 2",
+		image: "icons/Productivity_module_2.png",
+	},
+	productivity_module_3: {
+		name: "Productivity Module 3",
+		image: "icons/Productivity_module_3.png",
+	},
 	rail: {
 		name: "Rail",
 		image: "icons/Straight_rail.png",
@@ -257,6 +277,14 @@ const FactorioResource = {
 	speed_module_1: {
 		name: "Speed Module 1",
 		image: "icons/Speed_module.png",
+	},
+	speed_module_2: {
+		name: "Speed Module 2",
+		image: "icons/Speed_module_2.png",
+	},
+	speed_module_3: {
+		name: "Speed Module 3",
+		image: "icons/Speed_module_3.png",
 	},
 	splitter: {
 		name: "Splitter",

@@ -58,6 +58,10 @@ const FactorioResource = {
 		isBus: true,
 		isMap: true,
 	},
+	concrete: {
+		name: "Concrete",
+		image: "icons/Concrete.png",
+	},
 	copper_cable: {
 		name: "Copper Cable",
 		image: "icons/Copper_cable.png",
@@ -258,13 +262,25 @@ const FactorioResource = {
 		name: "Productivity Module 3",
 		image: "icons/Productivity_module_3.png",
 	},
+	radar: {
+		name: "Radar",
+		image: "icons/Radar.png",
+	},
 	rail: {
 		name: "Rail",
 		image: "icons/Straight_rail.png",
 	},
+	rocket_control_unit: {
+		name: "Rocket Control Unit",
+		image: "icons/Rocket_control_unit.png",
+	},
 	rocket_fuel: {
 		name: "Rocket Fuel",
 		image: "icons/Rocket_fuel.png",
+	},
+	satellite: {
+		name: "Satellite",
+		image: "icons/Satellite.png",
 	},
 	solar_panel: {
 		name: "Solar Panel",

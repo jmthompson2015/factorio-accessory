@@ -97,6 +97,14 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 2, resourceKey: "chemical_science_pack" }],
 	},
+	concrete: {
+		inputs: [
+			{ amount: 1, resourceKey: "iron_ore" },
+			{ amount: 5, resourceKey: "stone_brick" },
+			{ amount: 100, resourceKey: "water" },
+		],
+		outputs: [{ amount: 10, resourceKey: "concrete" }],
+	},
 	copper_cable: {
 		inputs: [{ amount: 1, resourceKey: "copper_plate" }],
 		outputs: [{ amount: 2, resourceKey: "copper_cable" }],
@@ -385,6 +393,14 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "productivity_module_3" }],
 	},
+	radar: {
+		inputs: [
+			{ amount: 5, resourceKey: "electronic_circuit" },
+			{ amount: 5, resourceKey: "iron_gear_wheel" },
+			{ amount: 10, resourceKey: "iron_plate" },
+		],
+		outputs: [{ amount: 2, resourceKey: "radar" }],
+	},
 	rail: {
 		inputs: [
 			{ amount: 1, resourceKey: "iron_stick" },
@@ -393,12 +409,30 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 2, resourceKey: "rail" }],
 	},
+	rocket_control_unit: {
+		inputs: [
+			{ amount: 1, resourceKey: "processing_unit" },
+			{ amount: 1, resourceKey: "speed_module_1" },
+		],
+		outputs: [{ amount: 1, resourceKey: "rocket_control_unit" }],
+	},
 	rocket_fuel: {
 		inputs: [
 			{ amount: 10, resourceKey: "light_oil" },
 			{ amount: 10, resourceKey: "solid_fuel" },
 		],
 		outputs: [{ amount: 1, resourceKey: "rocket_fuel" }],
+	},
+	satellite: {
+		inputs: [
+			{ amount: 100, resourceKey: "accumulator" },
+			{ amount: 100, resourceKey: "low_density_structure" },
+			{ amount: 100, resourceKey: "processing_unit" },
+			{ amount: 5, resourceKey: "radar" },
+			{ amount: 50, resourceKey: "rocket_fuel" },
+			{ amount: 100, resourceKey: "solar_panel" },
+		],
+		outputs: [{ amount: 1, resourceKey: "satellite" }],
 	},
 	solar_panel: {
 		inputs: [

@@ -25,6 +25,9 @@ const findRecipes = (outputKey) => {
 const generateAttributes = (keys) => {
 	const reduceFunction = (accum, key) => {
 		const resource = FactorioResource[key];
+		if (R.isNil(resource)) {
+			console.error(`Missing resource for key :${key}:`);
+		}
 		const name = R.replace(/ /g, "<br>", resource.name);
 		let answer = "";
 
@@ -220,6 +223,7 @@ generate("production_science_pack", {
 	isLeafSame: true,
 	isOrtho: true,
 });
+generate("space_science_pack", allFlags);
 generate("utility_science_pack", allFlags);
 
 generate(
@@ -229,10 +233,24 @@ generate(
 		"military_science_pack",
 		"chemical_science_pack",
 		"production_science_pack",
+		"space_science_pack",
 		"utility_science_pack",
 	],
 	allFlags,
 	"science_packs.dot"
+);
+
+// ////////////////////////////////////////////////////////////////////////////
+generate(
+	[
+		"iron_plate",
+		"electronic_circuit",
+		"advanced_circuit",
+		"steel_plate",
+		"copper_plate",
+	],
+	{ isMapBox: true },
+	"essentials.dot"
 );
 
 // ////////////////////////////////////////////////////////////////////////////
@@ -248,7 +266,7 @@ generate(
 		"stack_inserter",
 		"stack_filter_inserter",
 	],
-	allFlags,
+	{ isBusBox: true, isBusStop: true },
 	"inserters.dot"
 );
 
@@ -261,18 +279,12 @@ generate(
 generate(["accumulator", "solar_panel"], allFlags, "solar_power.dot");
 
 generate(
-	[
-		"transport_belt",
-		"underground_belt",
-		"splitter",
-		"fast_transport_belt",
-		"fast_underground_belt",
-		"fast_splitter",
-		"express_transport_belt",
-		"express_underground_belt",
-		"express_splitter",
-	],
-	allFlags,
+	["express_transport_belt", "express_underground_belt", "express_splitter"],
+	{
+		isBusBox: true,
+		isBusStop: true,
+		isLeafSame: true,
+	},
 	"transport_belts.dot"
 );
 

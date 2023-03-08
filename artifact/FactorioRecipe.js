@@ -286,13 +286,21 @@ const FactorioRecipe = {
 		inputs: [{ amount: 1, resourceKey: "iron_plate" }],
 		outputs: [{ amount: 2, resourceKey: "iron_stick" }],
 	},
-	light_oil: {
+	lab: {
 		inputs: [
-			{ amount: 40, resourceKey: "heavy_oil" },
-			{ amount: 30, resourceKey: "water" },
+			{ amount: 10, resourceKey: "electronic_circuit" },
+			{ amount: 10, resourceKey: "iron_gear_wheel" },
+			{ amount: 4, resourceKey: "transport_belt" },
 		],
-		outputs: [{ amount: 1, resourceKey: "light_oil" }],
+		outputs: [{ amount: 1, resourceKey: "lab" }],
 	},
+	// light_oil: {
+	// 	inputs: [
+	// 		{ amount: 40, resourceKey: "heavy_oil" },
+	// 		{ amount: 30, resourceKey: "water" },
+	// 	],
+	// 	outputs: [{ amount: 1, resourceKey: "light_oil" }],
+	// },
 	logistic_science_pack: {
 		inputs: [
 			{ amount: 1, resourceKey: "inserter" },
@@ -328,13 +336,13 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 2, resourceKey: "military_science_pack" }],
 	},
-	petroleum_gas: {
-		inputs: [
-			{ amount: 30, resourceKey: "light_oil" },
-			{ amount: 30, resourceKey: "water" },
-		],
-		outputs: [{ amount: 1, resourceKey: "petroleum_gas" }],
-	},
+	// petroleum_gas: {
+	// 	inputs: [
+	// 		{ amount: 30, resourceKey: "light_oil" },
+	// 		{ amount: 30, resourceKey: "water" },
+	// 	],
+	// 	outputs: [{ amount: 1, resourceKey: "petroleum_gas" }],
+	// },
 	piercing_rounds_magazine: {
 		inputs: [
 			{ amount: 5, resourceKey: "copper_plate" },
@@ -393,6 +401,15 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "productivity_module_3" }],
 	},
+	pumpjack: {
+		inputs: [
+			{ amount: 5, resourceKey: "electronic_circuit" },
+			{ amount: 10, resourceKey: "iron_gear_wheel" },
+			{ amount: 10, resourceKey: "pipe" },
+			{ amount: 5, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "pumpjack" }],
+	},
 	radar: {
 		inputs: [
 			{ amount: 5, resourceKey: "electronic_circuit" },
@@ -423,6 +440,14 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "rocket_fuel" }],
 	},
+	rocket_part: {
+		inputs: [
+			{ amount: 10, resourceKey: "low_density_structure" },
+			{ amount: 10, resourceKey: "rocket_control_unit" },
+			{ amount: 10, resourceKey: "rocket_fuel" },
+		],
+		outputs: [{ amount: 1, resourceKey: "rocket_part" }],
+	},
 	satellite: {
 		inputs: [
 			{ amount: 100, resourceKey: "accumulator" },
@@ -449,6 +474,13 @@ const FactorioRecipe = {
 	solid_fuel_2: {
 		inputs: [{ amount: 20, resourceKey: "petroleum_gas" }],
 		outputs: [{ amount: 1, resourceKey: "solid_fuel" }],
+	},
+	space_science_pack: {
+		inputs: [
+			{ amount: 100, resourceKey: "rocket_part" },
+			{ amount: 1, resourceKey: "satellite" },
+		],
+		outputs: [{ amount: 1000, resourceKey: "space_science_pack" }],
 	},
 	speed_module_1: {
 		inputs: [

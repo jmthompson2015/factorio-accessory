@@ -192,6 +192,10 @@ const FactorioResource = {
 		name: "Iron Stick",
 		image: "icons/Iron_stick.png",
 	},
+	lab: {
+		name: "Lab",
+		image: "icons/Lab.png",
+	},
 	light_oil: {
 		name: "Light Oil",
 		image: "icons/Light_oil.png",
@@ -262,6 +266,10 @@ const FactorioResource = {
 		name: "Productivity Module 3",
 		image: "icons/Productivity_module_3.png",
 	},
+	pumpjack: {
+		name: "Pumpjack",
+		image: "icons/Pumpjack.png",
+	},
 	radar: {
 		name: "Radar",
 		image: "icons/Radar.png",
@@ -278,6 +286,10 @@ const FactorioResource = {
 		name: "Rocket Fuel",
 		image: "icons/Rocket_fuel.png",
 	},
+	rocket_part: {
+		name: "Rocket Part",
+		image: "icons/Rocket_part.png",
+	},
 	satellite: {
 		name: "Satellite",
 		image: "icons/Satellite.png",
@@ -289,6 +301,11 @@ const FactorioResource = {
 	solid_fuel: {
 		name: "Solid Fuel",
 		image: "icons/Solid_fuel.png",
+	},
+	space_science_pack: {
+		name: "Space Science Pack",
+		image: "icons/Space_science_pack.png",
+		color: "white",
 	},
 	speed_module_1: {
 		name: "Speed Module 1",

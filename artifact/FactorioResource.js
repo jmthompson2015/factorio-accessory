@@ -164,6 +164,14 @@ const FactorioResource = {
 		name: "Grenade",
 		image: "icons/Grenade.png",
 	},
+	heat_exchanger: {
+		name: "Heat Exchanger",
+		image: "icons/Heat_exchanger.png",
+	},
+	heat_pipe: {
+		name: "Heat Pipe",
+		image: "icons/Heat_pipe.png",
+	},
 	heavy_oil: {
 		name: "Heavy Oil",
 		image: "icons/Heavy_oil.png",
@@ -225,6 +233,10 @@ const FactorioResource = {
 		name: "Military Science Pack",
 		image: "icons/Military_science_pack.png",
 		color: "gray",
+	},
+	nuclear_reactor: {
+		name: "Nuclear Reactor",
+		image: "icons/nuclear_reactor.png",
 	},
 	petroleum_gas: {
 		name: "Petroleum Gas",
@@ -331,6 +343,10 @@ const FactorioResource = {
 		name: "Stack Inserter",
 		image: "icons/Stack_inserter.png",
 	},
+	steam_turbine: {
+		name: "Steam Turbine",
+		image: "icons/Steam_turbine.png",
+	},
 	steel_furnace: {
 		name: "Steel Furnace",
 		image: "icons/Steel_furnace.png",
@@ -366,8 +382,8 @@ const FactorioResource = {
 	sulfuric_acid: {
 		name: "Sulfuric Acid",
 		image: "icons/Sulfuric_acid.png",
-		isFluid: true,
 		isBus: true,
+		isFluid: true,
 	},
 	transport_belt: {
 		name: "Transport Belt",
@@ -376,6 +392,23 @@ const FactorioResource = {
 	underground_belt: {
 		name: "Underground Belt",
 		image: "icons/Underground_belt.png",
+	},
+	uranium_235: {
+		name: "Uranium-235",
+		image: "icons/Uranium-235.png",
+	},
+	uranium_238: {
+		name: "Uranium-238",
+		image: "icons/Uranium-238.png",
+	},
+	uranium_fuel_cell: {
+		name: "Uranium Fuel Cell",
+		image: "icons/Uranium_fuel_cell.png",
+	},
+	uranium_ore: {
+		name: "Uranium Ore",
+		image: "icons/Uranium_ore.png",
+		isMap: true,
 	},
 	utility_science_pack: {
 		name: "Utility Science Pack",

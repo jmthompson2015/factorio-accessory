@@ -271,6 +271,25 @@ generate(
 );
 
 generate(
+	[
+		"heat_exchanger",
+		"heat_pipe",
+		"nuclear_reactor",
+		"steam_turbine",
+		"uranium_235",
+		"uranium_238",
+	],
+	{
+		// isBusBox: true,
+		isBusStop: true,
+		isLeafSame: true,
+		isMapBox: true,
+		// isOrtho: true,
+	},
+	"nuclear_power.dot"
+);
+
+generate(
 	["lubricant", "plastic_bar", "sulfuric_acid"],
 	{ isBusBox: true, isLeafSame: true, isMapBox: true, isOrtho: true },
 	"oil_processing.dot"

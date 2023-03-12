@@ -266,6 +266,21 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "grenade" }],
 	},
+	heat_exchanger: {
+		inputs: [
+			{ amount: 100, resourceKey: "copper_plate" },
+			{ amount: 10, resourceKey: "pipe" },
+			{ amount: 10, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "heat_exchanger" }],
+	},
+	heat_pipe: {
+		inputs: [
+			{ amount: 20, resourceKey: "copper_plate" },
+			{ amount: 10, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "heat_pipe" }],
+	},
 	inserter: {
 		inputs: [
 			{ amount: 1, resourceKey: "electronic_circuit" },
@@ -335,6 +350,15 @@ const FactorioRecipe = {
 			{ amount: 1, resourceKey: "wall" },
 		],
 		outputs: [{ amount: 2, resourceKey: "military_science_pack" }],
+	},
+	nuclear_reactor: {
+		inputs: [
+			{ amount: 500, resourceKey: "advanced_circuit" },
+			{ amount: 500, resourceKey: "concrete" },
+			{ amount: 500, resourceKey: "copper_plate" },
+			{ amount: 500, resourceKey: "steel_plate" },
+		],
+		outputs: [{ amount: 1, resourceKey: "nuclear_reactor" }],
 	},
 	// petroleum_gas: {
 	// 	inputs: [
@@ -529,6 +553,14 @@ const FactorioRecipe = {
 		],
 		outputs: [{ amount: 1, resourceKey: "stack_filter_inserter" }],
 	},
+	steam_turbine: {
+		inputs: [
+			{ amount: 50, resourceKey: "copper_plate" },
+			{ amount: 50, resourceKey: "iron_gear_wheel" },
+			{ amount: 20, resourceKey: "pipe" },
+		],
+		outputs: [{ amount: 1, resourceKey: "steam_turbine" }],
+	},
 	steel_furnace: {
 		inputs: [
 			{ amount: 6, resourceKey: "steel_plate" },
@@ -583,6 +615,21 @@ const FactorioRecipe = {
 			{ amount: 5, resourceKey: "transport_belt" },
 		],
 		outputs: [{ amount: 2, resourceKey: "underground_belt" }],
+	},
+	uranium_fuel_cell: {
+		inputs: [
+			{ amount: 10, resourceKey: "iron_plate" },
+			{ amount: 1, resourceKey: "uranium_235" },
+			{ amount: 19, resourceKey: "uranium_238" },
+		],
+		outputs: [{ amount: 10, resourceKey: "uranium_fuel_cell" }],
+	},
+	uranium_processing: {
+		inputs: [{ amount: 10, resourceKey: "uranium_ore" }],
+		outputs: [
+			{ amount: 0.007, resourceKey: "uranium_235" },
+			{ amount: 0.993, resourceKey: "uranium_238" },
+		],
 	},
 	utility_science_pack: {
 		inputs: [

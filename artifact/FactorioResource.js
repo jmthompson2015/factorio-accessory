@@ -34,6 +34,7 @@ const FactorioResource = {
 		name: "Battery",
 		image: "icons/Battery.png",
 		isBus: true,
+		isRaw: true,
 	},
 	burner_inserter: {
 		name: "Burner Inserter",
@@ -57,6 +58,7 @@ const FactorioResource = {
 		image: "icons/Coal.png",
 		isBus: true,
 		isMap: true,
+		isRaw: true,
 	},
 	concrete: {
 		name: "Concrete",
@@ -70,17 +72,20 @@ const FactorioResource = {
 		name: "Copper Ore",
 		image: "icons/Copper_ore.png",
 		isMap: true,
+		isRaw: true,
 	},
 	copper_plate: {
 		name: "Copper Plate",
 		image: "icons/Copper_plate.png",
 		isBus: true,
+		isRaw: true,
 	},
 	crude_oil: {
 		name: "Crude Oil",
 		image: "icons/Crude_oil.png",
 		isFluid: true,
 		isMap: true,
+		isRaw: true,
 	},
 	efficiency_module_1: {
 		name: "Efficiency Module 1",
@@ -97,6 +102,7 @@ const FactorioResource = {
 	electric_engine_unit: {
 		name: "Electric Engine Unit",
 		image: "icons/Electric_engine_unit.png",
+		isRaw: true,
 	},
 	electric_furnace: {
 		name: "Electric Furnace",
@@ -115,18 +121,22 @@ const FactorioResource = {
 	engine_unit: {
 		name: "Engine Unit",
 		image: "icons/Engine_unit.png",
+		isRaw: true,
 	},
 	express_splitter: {
 		name: "Express Splitter",
 		image: "icons/Express_splitter.png",
+		isRaw: true,
 	},
 	express_transport_belt: {
 		name: "Express Transport Belt",
 		image: "icons/Express_transport_belt.png",
+		isRaw: true,
 	},
 	express_underground_belt: {
 		name: "Express Underground Belt",
 		image: "icons/Express_underground_belt.png",
+		isRaw: true,
 	},
 	fast_inserter: {
 		name: "Fast Inserter",
@@ -176,6 +186,7 @@ const FactorioResource = {
 		name: "Heavy Oil",
 		image: "icons/Heavy_oil.png",
 		isFluid: true,
+		isRaw: true,
 	},
 	inserter: {
 		name: "Inserter",
@@ -190,11 +201,13 @@ const FactorioResource = {
 		name: "Iron Ore",
 		image: "icons/Iron_ore.png",
 		isMap: true,
+		isRaw: true,
 	},
 	iron_plate: {
 		name: "Iron Plate",
 		image: "icons/Iron_plate.png",
 		isBus: true,
+		isRaw: true,
 	},
 	iron_stick: {
 		name: "Iron Stick",
@@ -208,6 +221,7 @@ const FactorioResource = {
 		name: "Light Oil",
 		image: "icons/Light_oil.png",
 		isFluid: true,
+		isRaw: true,
 	},
 	logistic_science_pack: {
 		name: "Logistic Science Pack",
@@ -228,6 +242,7 @@ const FactorioResource = {
 		image: "icons/Lubricant.png",
 		isBus: true,
 		isFluid: true,
+		isRaw: true,
 	},
 	military_science_pack: {
 		name: "Military Science Pack",
@@ -241,6 +256,8 @@ const FactorioResource = {
 	petroleum_gas: {
 		name: "Petroleum Gas",
 		image: "icons/Petroleum_gas.png",
+		isFluid: true,
+		isRaw: true,
 	},
 	piercing_rounds_magazine: {
 		name: "Piercing Rounds Magazine",
@@ -254,12 +271,14 @@ const FactorioResource = {
 		name: "Plastic Bar",
 		image: "icons/Plastic_bar.png",
 		isBus: true,
+		isRaw: true,
 	},
 	processing_unit: {
 		name: "Processing Unit",
 		image: "icons/Processing_unit.png",
 		color: "blue",
 		isBus: true,
+		isRaw: true,
 	},
 	production_science_pack: {
 		name: "Production Science Pack",
@@ -297,10 +316,12 @@ const FactorioResource = {
 	rocket_fuel: {
 		name: "Rocket Fuel",
 		image: "icons/Rocket_fuel.png",
+		isRaw: true,
 	},
 	rocket_part: {
 		name: "Rocket Part",
 		image: "icons/Rocket_part.png",
+		// isRaw: true,
 	},
 	satellite: {
 		name: "Satellite",
@@ -313,6 +334,7 @@ const FactorioResource = {
 	solid_fuel: {
 		name: "Solid Fuel",
 		image: "icons/Solid_fuel.png",
+		isRaw: true,
 	},
 	space_science_pack: {
 		name: "Space Science Pack",
@@ -343,6 +365,12 @@ const FactorioResource = {
 		name: "Stack Inserter",
 		image: "icons/Stack_inserter.png",
 	},
+	steam: {
+		name: "Steam",
+		image: "icons/Steam.png",
+		isFluid: true,
+		isRaw: true,
+	},
 	steam_turbine: {
 		name: "Steam Turbine",
 		image: "icons/Steam_turbine.png",
@@ -355,17 +383,20 @@ const FactorioResource = {
 		name: "Steel Plate",
 		image: "icons/Steel_plate.png",
 		isBus: true,
+		isRaw: true,
 	},
 	stone: {
 		name: "Stone",
 		image: "icons/Stone.png",
 		isBus: true,
 		isMap: true,
+		isRaw: true,
 	},
 	stone_brick: {
 		name: "Stone Brick",
 		image: "icons/Stone_brick.png",
 		isBus: true,
+		isRaw: true,
 	},
 	stone_furnace: {
 		name: "Stone Furnace",
@@ -378,12 +409,14 @@ const FactorioResource = {
 	sulfur: {
 		name: "Sulfur",
 		image: "icons/Sulfur.png",
+		isRaw: true,
 	},
 	sulfuric_acid: {
 		name: "Sulfuric Acid",
 		image: "icons/Sulfuric_acid.png",
 		isBus: true,
 		isFluid: true,
+		isRaw: true,
 	},
 	transport_belt: {
 		name: "Transport Belt",
@@ -409,6 +442,7 @@ const FactorioResource = {
 		name: "Uranium Ore",
 		image: "icons/Uranium_ore.png",
 		isMap: true,
+		isRaw: true,
 	},
 	utility_science_pack: {
 		name: "Utility Science Pack",
@@ -424,6 +458,7 @@ const FactorioResource = {
 		image: "icons/Water.png",
 		isFluid: true,
 		isMap: true,
+		isRaw: true,
 	},
 };
 

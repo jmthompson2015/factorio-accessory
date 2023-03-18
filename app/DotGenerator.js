@@ -34,7 +34,7 @@ const generateAttributes = (keys) => {
 		if (R.isNil(resource.image)) {
 			const name = R.replace(/ /g, "\\n", resource.name);
 			answer = accum + `${key} [label=\"${name}\"`;
-			if (!resource.isBus) {
+			if (!resource.isRaw) {
 				answer += `; shape=box`;
 			}
 			if (resource.color) {
@@ -51,7 +51,7 @@ const generateAttributes = (keys) => {
 	   <tr><td>${name}</td></tr>
 	</table>
 >`;
-			if (!resource.isBus) {
+			if (!resource.isRaw) {
 				answer += `; shape=box`;
 			}
 			answer += `];\n`;
@@ -62,10 +62,10 @@ const generateAttributes = (keys) => {
 	return R.reduce(reduceFunction, "", keys);
 };
 
-const generateEdges = (keys, isBusStop) => {
+const generateEdges = (keys, isBusStop, isRawStop) => {
 	const reduceFunction1 = (accum1, key1) => {
 		const resource = FactorioResource[key1];
-		if (isBusStop && resource.isBus) {
+		if ((isBusStop && resource.isBus) || (isRawStop && resource.isRaw)) {
 			return accum1;
 		}
 		const reduceFunction2 = (accum2, key2) => {
@@ -90,10 +90,10 @@ const generateEdges = (keys, isBusStop) => {
 	return R.reduce(reduceFunction1, "", keys);
 };
 
-const getResourceKeys = (resourceKey, isBusStop) => {
+const getResourceKeys = (resourceKey, isBusStop, isRawStop) => {
 	let answer = [resourceKey];
 	const resource = FactorioResource[resourceKey];
-	if (isBusStop && resource.isBus) {
+	if ((isBusStop && resource.isBus) || (isRawStop && resource.isRaw)) {
 		return answer;
 	}
 	const recipes = findRecipes(resourceKey);
@@ -104,7 +104,7 @@ const getResourceKeys = (resourceKey, isBusStop) => {
 				const inputKeys = R.uniq(resourceKeys(recipe.inputs));
 				const reduceFunction1 = (accum1, key1) => {
 					const resource = FactorioResource[key1];
-					const keys = getResourceKeys(key1, isBusStop);
+					const keys = getResourceKeys(key1, isBusStop, isRawStop);
 					return R.uniq(R.concat(accum1, keys));
 				};
 				const moreKeys = R.reduce(
@@ -129,18 +129,26 @@ const FOOTER = "}\n";
 const DotGenerator = {};
 
 DotGenerator.generate = (resourceKeys, flags = {}) => {
-	const { isBusBox, isBusStop, isLeafSame, isMapBox, isOrtho } = flags;
+	const {
+		isBusBox,
+		isBusStop,
+		isLeafSame,
+		isMapBox,
+		isOrtho,
+		isRawBox,
+		isRawStop,
+	} = flags;
 	const reduceFunction1 = (accum, key) => accum + `${key}; `;
 	let allKeys0 = [];
 	let leafString = "";
 
 	if (Array.isArray(resourceKeys)) {
 		const reduceFunction2 = (accum, key) =>
-			R.uniq(R.concat(accum, getResourceKeys(key, isBusStop)));
+			R.uniq(R.concat(accum, getResourceKeys(key, isBusStop, isRawStop)));
 		allKeys0 = R.reduce(reduceFunction2, [], resourceKeys);
 		leafString = R.reduce(reduceFunction1, "", resourceKeys);
 	} else {
-		allKeys0 = getResourceKeys(resourceKeys, isBusStop);
+		allKeys0 = getResourceKeys(resourceKeys, isBusStop, isRawStop);
 		leafString = resourceKeys;
 	}
 	const allKeys = allKeys0.sort();
@@ -179,6 +187,20 @@ DotGenerator.generate = (resourceKeys, flags = {}) => {
 		answer += "\n";
 	}
 
+	if (isRawBox) {
+		const rawFilter = (key) => {
+			if (!FactorioResource[key]) {
+				console.error(`Missing resource for key = :${key}:`);
+			}
+			return FactorioResource[key].isRaw;
+		};
+
+		const rawKeys = R.filter(rawFilter, allKeys);
+		const rawString = R.reduce(reduceFunction1, "", rawKeys);
+		answer += `subgraph cluster_raw { label = "Raw Resource"; ${rawString}}\n`;
+		answer += "\n";
+	}
+
 	if (isLeafSame) {
 		answer += `{ rank=same; ${leafString}}\n`;
 		answer += "\n";
@@ -186,7 +208,7 @@ DotGenerator.generate = (resourceKeys, flags = {}) => {
 
 	answer += generateAttributes(allKeys);
 	answer += "\n";
-	answer += generateEdges(allKeys, isBusStop);
+	answer += generateEdges(allKeys, isBusStop, isRawStop);
 	answer += "\n";
 	answer += FOOTER;
 
@@ -205,26 +227,22 @@ const allFlags = {
 	isLeafSame: true,
 	isMapBox: true,
 	isOrtho: true,
+	isRawBox: true,
+	isRawStop: true,
 };
 
 // ////////////////////////////////////////////////////////////////////////////
-generate("automation_science_pack", allFlags);
-generate("logistic_science_pack", allFlags);
-generate("military_science_pack", {
-	isBusBox: true,
-	isBusStop: true,
+const scienceFlags = {
 	isLeafSame: true,
-	isOrtho: true,
-});
-generate("chemical_science_pack", allFlags);
-generate("production_science_pack", {
-	isBusBox: true,
-	isBusStop: true,
-	isLeafSame: true,
-	isOrtho: true,
-});
-generate("space_science_pack", allFlags);
-generate("utility_science_pack", allFlags);
+	isMapBox: true,
+};
+generate("automation_science_pack", scienceFlags);
+generate("logistic_science_pack", scienceFlags);
+generate("military_science_pack", scienceFlags);
+generate("chemical_science_pack", scienceFlags);
+generate("production_science_pack", scienceFlags);
+generate("space_science_pack", scienceFlags);
+generate("utility_science_pack", scienceFlags);
 
 generate(
 	[
@@ -236,25 +254,41 @@ generate(
 		"space_science_pack",
 		"utility_science_pack",
 	],
-	allFlags,
+	scienceFlags,
 	"science_packs.dot"
+);
+
+generate(
+	[
+		"automation_science_pack",
+		"logistic_science_pack",
+		"military_science_pack",
+		"chemical_science_pack",
+		"production_science_pack",
+		"space_science_pack",
+		"utility_science_pack",
+	],
+	{ isRawStop: true },
+	"science_packs2.dot"
 );
 
 // ////////////////////////////////////////////////////////////////////////////
 generate(
-	[
-		"iron_plate",
-		"electronic_circuit",
-		"advanced_circuit",
-		"steel_plate",
-		"copper_plate",
-	],
-	{ isMapBox: true },
+	["electronic_circuit", "advanced_circuit", "steel_plate"],
+	{ isRawBox: true },
 	"essentials.dot"
 );
 
 // ////////////////////////////////////////////////////////////////////////////
-generate(["flying_robot_frame"], allFlags, "flying_robot_frame.dot");
+generate(
+	["flying_robot_frame"],
+	{
+		isLeafSame: true,
+		isRawBox: true,
+		isRawStop: true,
+	},
+	"flying_robot_frame.dot"
+);
 
 generate(
 	[
@@ -266,7 +300,10 @@ generate(
 		"stack_inserter",
 		"stack_filter_inserter",
 	],
-	{ isBusBox: true, isBusStop: true },
+	{
+		isRawBox: true,
+		isRawStop: true,
+	},
 	"inserters.dot"
 );
 
@@ -280,30 +317,44 @@ generate(
 		"uranium_238",
 	],
 	{
-		// isBusBox: true,
-		isBusStop: true,
 		isLeafSame: true,
-		isMapBox: true,
-		// isOrtho: true,
+		isRawBox: true,
+		isRawStop: true,
 	},
 	"nuclear_power.dot"
 );
 
 generate(
 	["lubricant", "plastic_bar", "sulfuric_acid"],
-	{ isBusBox: true, isLeafSame: true, isMapBox: true, isOrtho: true },
+	{
+		isLeafSame: true,
+		isRawBox: true,
+	},
 	"oil_processing.dot"
 );
 
-generate(["accumulator", "solar_panel"], allFlags, "solar_power.dot");
+generate(
+	["accumulator", "solar_panel"],
+	{
+		isRawBox: true,
+		isRawStop: true,
+	},
+	"solar_power.dot"
+);
 
 generate(
-	["express_transport_belt", "express_underground_belt", "express_splitter"],
-	{
-		isBusBox: true,
-		isBusStop: true,
-		isLeafSame: true,
-	},
+	[
+		"transport_belt",
+		"underground_belt",
+		"splitter",
+		"fast_transport_belt",
+		"fast_underground_belt",
+		"fast_splitter",
+		"express_transport_belt",
+		"express_underground_belt",
+		"express_splitter",
+	],
+	{ isBusStop: true },
 	"transport_belts.dot"
 );
 

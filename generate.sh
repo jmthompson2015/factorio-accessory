@@ -9,6 +9,8 @@ dot -Tpng dot/space_science_pack.dot -o dist/space_science_pack.png
 dot -Tpng dot/utility_science_pack.dot -o dist/utility_science_pack.png
 dot -Tpng dot/science_packs.dot -o dist/science_packs.png
 
+neato -Tpng dot/science_packs2.dot -Goverlap=false -Gsplines=true -o dist/science_packs2.png
+
 dot -Tpng dot/essentials.dot -o dist/essentials.png
 
 dot -Tpng dot/inserters.dot -o dist/inserters.png

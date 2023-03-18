@@ -15,8 +15,18 @@ const resourceKeys = R.reduce(
 	Object.values(FactorioRecipe)
 );
 
+const rawResourceReport = () => {
+	const resourceKeys2 = Object.keys(FactorioResource);
+	const filterFunction = (resourceKey) => {
+		return FactorioResource[resourceKey].isRaw;
+	};
+	const rawKeys = R.filter(filterFunction, resourceKeys2);
+	rawKeys.sort();
+	const outputString = rawKeys.join("\n");
+	console.log(`\nRaw Resource Keys [${rawKeys.length}]:\n${outputString}`);
+};
+
 const resourceCountReport = () => {
-	// Resource count report.
 	const reduceFunction2 = (accum2, resourceKey) => {
 		const count = R.count((e) => e === resourceKey, resourceKeys);
 		return R.assoc(resourceKey, count, accum2);
@@ -36,7 +46,7 @@ const resourceCountReport = () => {
 		return accum3;
 	};
 	const outputString = R.reduce(reduceFunction3, "", resourceKeys3);
-	console.log(`\nResource keys:\n${outputString}`);
+	console.log(`\nResource Key Count:\n${outputString}`);
 };
 
 const ironGearWheelsReport = () => {
@@ -56,5 +66,6 @@ const ironGearWheelsReport = () => {
 	);
 };
 
+rawResourceReport();
 resourceCountReport();
 ironGearWheelsReport();

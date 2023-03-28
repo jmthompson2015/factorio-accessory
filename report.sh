@@ -1,1 +1,1 @@
-node ./app/ResourceReport
+node ./app/FactorioResourceReport

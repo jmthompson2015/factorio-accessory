@@ -1,24 +1,18 @@
 const R = require("ramda");
 
-const FactorioRecipe = require("../artifact/FactorioRecipe.js");
-const FactorioResource = require("../artifact/FactorioResource.js");
-
 const mapResourceKey = (input) => input.resourceKey;
 
 const reduceFunction1 = (accum1, recipe) => {
 	const inputKeys = R.map(mapResourceKey, recipe.inputs);
 	return R.concat(accum1, inputKeys);
 };
-const resourceKeys = R.reduce(
-	reduceFunction1,
-	[],
-	Object.values(FactorioRecipe)
-);
 
-const rawResourceReport = () => {
-	const resourceKeys2 = Object.keys(FactorioResource);
+const ResourceReport = {};
+
+ResourceReport.rawResourceReport = (myResources) => {
+	const resourceKeys2 = Object.keys(myResources);
 	const filterFunction = (resourceKey) => {
-		return FactorioResource[resourceKey].isRaw;
+		return myResources[resourceKey].isRaw;
 	};
 	const rawKeys = R.filter(filterFunction, resourceKeys2);
 	rawKeys.sort();
@@ -26,7 +20,12 @@ const rawResourceReport = () => {
 	console.log(`\nRaw Resource Keys [${rawKeys.length}]:\n${outputString}`);
 };
 
-const resourceCountReport = () => {
+ResourceReport.resourceCountReport = (myRecipes) => {
+	const resourceKeys = R.reduce(
+		reduceFunction1,
+		[],
+		Object.values(myRecipes)
+	);
 	const reduceFunction2 = (accum2, resourceKey) => {
 		const count = R.count((e) => e === resourceKey, resourceKeys);
 		return R.assoc(resourceKey, count, accum2);
@@ -49,16 +48,16 @@ const resourceCountReport = () => {
 	console.log(`\nResource Key Count:\n${outputString}`);
 };
 
-const ironGearWheelsReport = () => {
+ResourceReport.ironGearWheelsReport = (myRecipes) => {
 	const filterFunction = (recipeKey) => {
-		const recipe = FactorioRecipe[recipeKey];
+		const recipe = myRecipes[recipeKey];
 		const inputKeys = R.map(mapResourceKey, recipe.inputs);
 		return (
 			inputKeys.includes("iron_gear_wheel") &&
 			!inputKeys.includes("iron_plate")
 		);
 	};
-	const recipeKeys = R.filter(filterFunction, Object.keys(FactorioRecipe));
+	const recipeKeys = R.filter(filterFunction, Object.keys(myRecipes));
 	console.log(
 		`\nRecipes using Iron Gear Wheel but not Iron Plate:\n${recipeKeys.join(
 			"\n"
@@ -66,6 +65,4 @@ const ironGearWheelsReport = () => {
 	);
 };
 
-rawResourceReport();
-resourceCountReport();
-ironGearWheelsReport();
+module.exports = ResourceReport;

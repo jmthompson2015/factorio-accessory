@@ -1,4 +1,4 @@
-node ./app/DotGenerator
+node ./app/FactorioDotGenerator
 
 dot -Tpng dot/automation_science_pack.dot -o dist/automation_science_pack.png
 dot -Tpng dot/logistic_science_pack.dot -o dist/logistic_science_pack.png

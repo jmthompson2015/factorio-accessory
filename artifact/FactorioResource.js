@@ -10,7 +10,6 @@ const FactorioResource = {
 	advanced_circuit: {
 		name: "Advanced Circuit",
 		image: "icons/Advanced_circuit.png",
-		color: "red",
 		isBus: true,
 	},
 	assembling_machine_1: {
@@ -28,7 +27,6 @@ const FactorioResource = {
 	automation_science_pack: {
 		name: "Automation Science Pack",
 		image: "icons/Automation_science_pack.png",
-		color: "red",
 	},
 	battery: {
 		name: "Battery",
@@ -51,7 +49,6 @@ const FactorioResource = {
 	chemical_science_pack: {
 		name: "Chemical Science Pack",
 		image: "icons/Chemical_science_pack.png",
-		color: "cyan",
 	},
 	coal: {
 		name: "Coal",
@@ -115,7 +112,6 @@ const FactorioResource = {
 	electronic_circuit: {
 		name: "Electronic Circuit",
 		image: "icons/Electronic_circuit.png",
-		color: "green",
 		isBus: true,
 	},
 	engine_unit: {
@@ -191,7 +187,6 @@ const FactorioResource = {
 	inserter: {
 		name: "Inserter",
 		image: "icons/Inserter.png",
-		color: "yellow",
 	},
 	iron_gear_wheel: {
 		name: "Iron Gear Wheel",
@@ -226,12 +221,10 @@ const FactorioResource = {
 	logistic_science_pack: {
 		name: "Logistic Science Pack",
 		image: "icons/Logistic_science_pack.png",
-		color: "green",
 	},
 	long_handed_inserter: {
 		name: "Long-Handed Inserter",
 		image: "icons/Long-handed_inserter.png",
-		color: "red",
 	},
 	low_density_structure: {
 		name: "Low Density Structure",
@@ -247,7 +240,6 @@ const FactorioResource = {
 	military_science_pack: {
 		name: "Military Science Pack",
 		image: "icons/Military_science_pack.png",
-		color: "gray",
 	},
 	nuclear_reactor: {
 		name: "Nuclear Reactor",
@@ -276,14 +268,12 @@ const FactorioResource = {
 	processing_unit: {
 		name: "Processing Unit",
 		image: "icons/Processing_unit.png",
-		color: "blue",
 		isBus: true,
 		isRaw: true,
 	},
 	production_science_pack: {
 		name: "Production Science Pack",
 		image: "icons/Production_science_pack.png",
-		color: "purple",
 	},
 	productivity_module_1: {
 		name: "Productivity Module 1",
@@ -339,7 +329,6 @@ const FactorioResource = {
 	space_science_pack: {
 		name: "Space Science Pack",
 		image: "icons/Space_science_pack.png",
-		color: "white",
 	},
 	speed_module_1: {
 		name: "Speed Module 1",
@@ -447,7 +436,6 @@ const FactorioResource = {
 	utility_science_pack: {
 		name: "Utility Science Pack",
 		image: "icons/Utility_science_pack.png",
-		color: "yellow",
 	},
 	wall: {
 		name: "Wall",

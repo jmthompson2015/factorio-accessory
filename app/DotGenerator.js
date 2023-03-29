@@ -36,6 +36,8 @@ const generateAttributes = (myResources, keys) => {
 			}
 			if (resource.color) {
 				answer += `; fillcolor=${resource.color}; style=filled`;
+			} else {
+				answer += `; fillcolor=white; style=filled`;
 			}
 			answer += `];\n`;
 		} else {
@@ -50,6 +52,11 @@ const generateAttributes = (myResources, keys) => {
 >`;
 			if (!resource.isRaw) {
 				answer += `; shape=box`;
+			}
+			if (resource.color) {
+				answer += `; fillcolor=${resource.color}; style=filled`;
+			} else {
+				answer += `; fillcolor=white; style=filled`;
 			}
 			answer += `];\n`;
 		}
@@ -132,7 +139,7 @@ const getResourceKeys = (
 	return answer;
 };
 
-const HEADER = `digraph {\n`;
+const HEADER = `digraph {\nbgcolor=lightgray\n`;
 const FOOTER = "}\n";
 
 const DotGenerator = {};

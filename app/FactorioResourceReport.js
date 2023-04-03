@@ -8,3 +8,6 @@ const ResourceReport = require("./ResourceReport.js");
 ResourceReport.rawResourceReport(FactorioResource);
 ResourceReport.resourceCountReport(FactorioRecipe);
 ResourceReport.ironGearWheelsReport(FactorioRecipe);
+ResourceReport.missingFabricators(FactorioRecipe);
+ResourceReport.missingRawFlag(FactorioRecipe, FactorioResource);
+ResourceReport.hasRawFlag(FactorioRecipe, FactorioResource);

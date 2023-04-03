@@ -60,6 +60,7 @@ const FactorioResource = {
 	concrete: {
 		name: "Concrete",
 		image: "icons/Concrete.png",
+		isRaw: true,
 	},
 	copper_cable: {
 		name: "Copper Cable",
@@ -311,7 +312,7 @@ const FactorioResource = {
 	rocket_part: {
 		name: "Rocket Part",
 		image: "icons/Rocket_part.png",
-		// isRaw: true,
+		isRaw: true,
 	},
 	satellite: {
 		name: "Satellite",
@@ -329,6 +330,7 @@ const FactorioResource = {
 	space_science_pack: {
 		name: "Space Science Pack",
 		image: "icons/Space_science_pack.png",
+		isRaw: true,
 	},
 	speed_module_1: {
 		name: "Speed Module 1",
@@ -418,10 +420,12 @@ const FactorioResource = {
 	uranium_235: {
 		name: "Uranium-235",
 		image: "icons/Uranium-235.png",
+		isRaw: true,
 	},
 	uranium_238: {
 		name: "Uranium-238",
 		image: "icons/Uranium-238.png",
+		isRaw: true,
 	},
 	uranium_fuel_cell: {
 		name: "Uranium Fuel Cell",

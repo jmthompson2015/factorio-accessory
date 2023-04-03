@@ -2,12 +2,93 @@ const R = require("ramda");
 
 const mapResourceKey = (input) => input.resourceKey;
 
+const findRecipes = (myRecipes, outputKey) => {
+	const filterFunction = (recipeKey) => {
+		const recipe = myRecipes[recipeKey];
+		const outputKeys = R.map(mapResourceKey, recipe.outputs);
+		return outputKeys.includes(outputKey);
+	};
+	return R.filter(filterFunction, Object.keys(myRecipes));
+};
+
 const reduceFunction1 = (accum1, recipe) => {
 	const inputKeys = R.map(mapResourceKey, recipe.inputs);
 	return R.concat(accum1, inputKeys);
 };
 
 const ResourceReport = {};
+
+ResourceReport.hasRawFlag = (myRecipes, myResources) => {
+	const resourceKeys = Object.keys(myResources);
+	const filterFunction = (resourceKey) => {
+		const resource = myResources[resourceKey];
+		return R.isNil(resource.isRaw) ? false : resource.isRaw;
+	};
+	const rawResourceKeys = R.filter(filterFunction, resourceKeys);
+
+	const reduceFunction = (accum, resourceKey) => {
+		const recipeKeys = findRecipes(myRecipes, resourceKey);
+		const filterFunction2 = (recipeKey) => {
+			const fabricators = myRecipes[recipeKey].fabricators;
+			return fabricators ? fabricators.includes("engineer") : false;
+		};
+		return R.uniq(R.concat(accum, R.filter(filterFunction2, recipeKeys)));
+	};
+	const flaggedResourceKeys = R.reduce(reduceFunction, [], rawResourceKeys);
+	flaggedResourceKeys.sort();
+	const outputString = flaggedResourceKeys.join("\n");
+	console.log(
+		`\nResource Keys badly flagged raw [${flaggedResourceKeys.length}]:\n${outputString}`
+	);
+};
+
+ResourceReport.missingFabricators = (myRecipes) => {
+	const recipeKeys = Object.keys(myRecipes);
+	const filterFunction = (recipeKey) => {
+		return R.isNil(myRecipes[recipeKey].fabricators);
+	};
+	const fabKeys = R.filter(filterFunction, recipeKeys);
+	fabKeys.sort();
+	const outputString = fabKeys.join("\n");
+	console.log(
+		`\nRecipe Keys missing fabricators [${fabKeys.length}]:\n${outputString}`
+	);
+};
+
+ResourceReport.missingRawFlag = (myRecipes, myResources) => {
+	const recipeKeys = Object.keys(myRecipes);
+	const filterFunction = (recipeKey) => {
+		const fabricators = myRecipes[recipeKey].fabricators;
+		return fabricators ? !fabricators.includes("engineer") : false;
+	};
+	const rawRecipeKeys = R.filter(filterFunction, recipeKeys);
+
+	const mapOutputKey = (output) => output.resourceKey;
+	const reduceFunction1 = (accum, recipeKey) => {
+		const recipe = myRecipes[recipeKey];
+		const outputKeys = R.map(mapOutputKey, recipe.outputs);
+		return R.uniq(R.concat(accum, outputKeys));
+	};
+	const rawResourceKeys = R.reduce(reduceFunction1, [], rawRecipeKeys);
+
+	const reduceFunction2 = (accum, resourceKey) => {
+		const resource = myResources[resourceKey];
+		if (R.isNil(resource.isRaw)) {
+			return R.uniq(R.append(resourceKey, accum));
+		}
+		return accum;
+	};
+	const unflaggedResourceKeys = R.reduce(
+		reduceFunction2,
+		[],
+		rawResourceKeys
+	);
+	unflaggedResourceKeys.sort();
+	const outputString = unflaggedResourceKeys.join("\n");
+	console.log(
+		`\nResource Keys without isRaw [${unflaggedResourceKeys.length}]:\n${outputString}`
+	);
+};
 
 ResourceReport.rawResourceReport = (myResources) => {
 	const resourceKeys2 = Object.keys(myResources);

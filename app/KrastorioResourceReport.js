@@ -8,3 +8,6 @@ const ResourceReport = require("./ResourceReport.js");
 ResourceReport.rawResourceReport(KrastorioResource);
 ResourceReport.resourceCountReport(KrastorioRecipe);
 ResourceReport.ironGearWheelsReport(KrastorioRecipe);
+ResourceReport.missingFabricators(KrastorioRecipe);
+ResourceReport.missingRawFlag(KrastorioRecipe, KrastorioResource);
+ResourceReport.hasRawFlag(KrastorioRecipe, KrastorioResource);

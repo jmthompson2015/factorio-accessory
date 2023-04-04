@@ -1,4 +1,4 @@
-const R = require("ramda");
+import * as R from "ramda";
 
 const mapResourceKey = (input) => input.resourceKey;
 
@@ -146,4 +146,4 @@ ResourceReport.ironGearWheelsReport = (myRecipes) => {
 	);
 };
 
-module.exports = ResourceReport;
+export default ResourceReport;

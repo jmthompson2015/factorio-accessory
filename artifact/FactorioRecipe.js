@@ -730,4 +730,4 @@ const FactorioRecipe = {
 
 console.info(`Recipe count = ${Object.keys(FactorioRecipe).length}`);
 
-module.exports = FactorioRecipe;
+export default FactorioRecipe;

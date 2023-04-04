@@ -1,6 +1,6 @@
-const R = require("ramda");
+import * as R from "ramda";
 
-const FileWriter = require("../utility/FileWriter.js");
+import FileWriter from "../utility/FileWriter.js";
 
 const resourceKeys = (array) => R.map((e) => e.resourceKey, array);
 
@@ -254,4 +254,4 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 	return answer;
 };
 
-module.exports = DotGenerator;
+export default DotGenerator;

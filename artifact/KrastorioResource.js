@@ -392,4 +392,4 @@ console.info(
 	`Krastorio Resource count = ${Object.keys(KrastorioResource).length}`
 );
 
-module.exports = KrastorioResource;
+export default KrastorioResource;

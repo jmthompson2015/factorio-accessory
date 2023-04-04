@@ -1,9 +1,7 @@
-const R = require("ramda");
+import FactorioRecipe from "../artifact/FactorioRecipe.js";
+import FactorioResource from "../artifact/FactorioResource.js";
 
-const FactorioRecipe = require("../artifact/FactorioRecipe.js");
-const FactorioResource = require("../artifact/FactorioResource.js");
-
-const ResourceReport = require("./ResourceReport.js");
+import ResourceReport from "./ResourceReport.js";
 
 ResourceReport.rawResourceReport(FactorioResource);
 ResourceReport.resourceCountReport(FactorioRecipe);

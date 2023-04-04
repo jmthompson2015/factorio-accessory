@@ -459,4 +459,4 @@ const KrastorioRecipe = {
 
 console.info(`Krastorio Recipe count = ${Object.keys(KrastorioRecipe).length}`);
 
-module.exports = KrastorioRecipe;
+export default KrastorioRecipe;

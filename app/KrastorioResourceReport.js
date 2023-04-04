@@ -1,9 +1,9 @@
-const R = require("ramda");
+import * as R from "ramda";
 
-const KrastorioRecipe = require("../artifact/KrastorioRecipe.js");
-const KrastorioResource = require("../artifact/KrastorioResource.js");
+import KrastorioRecipe from "../artifact/KrastorioRecipe.js";
+import KrastorioResource from "../artifact/KrastorioResource.js";
 
-const ResourceReport = require("./ResourceReport.js");
+import ResourceReport from "./ResourceReport.js";
 
 ResourceReport.rawResourceReport(KrastorioResource);
 ResourceReport.resourceCountReport(KrastorioRecipe);

@@ -456,4 +456,4 @@ const FactorioResource = {
 
 console.info(`Resource count = ${Object.keys(FactorioResource).length}`);
 
-module.exports = FactorioResource;
+export default FactorioResource;

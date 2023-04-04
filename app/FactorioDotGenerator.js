@@ -1,10 +1,10 @@
-const R = require("ramda");
+import * as R from "ramda";
 
-const FileWriter = require("../utility/FileWriter.js");
+import FileWriter from "../utility/FileWriter.js";
 
-const DotGenerator = require("./DotGenerator.js");
-const FactorioRecipe = require("../artifact/FactorioRecipe.js");
-const FactorioResource = require("../artifact/FactorioResource.js");
+import DotGenerator from "./DotGenerator.js";
+import FactorioRecipe from "../artifact/FactorioRecipe.js";
+import FactorioResource from "../artifact/FactorioResource.js";
 
 const generate = (resourceKeys, flags, filename0) => {
 	const content = DotGenerator.generate(

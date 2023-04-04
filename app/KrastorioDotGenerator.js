@@ -1,10 +1,10 @@
-const R = require("ramda");
+import * as R from "ramda";
 
-const FileWriter = require("../utility/FileWriter.js");
+import FileWriter from "../utility/FileWriter.js";
 
-const DotGenerator = require("./DotGenerator.js");
-const KrastorioRecipe = require("../artifact/KrastorioRecipe.js");
-const KrastorioResource = require("../artifact/KrastorioResource.js");
+import DotGenerator from "./DotGenerator.js";
+import KrastorioRecipe from "../artifact/KrastorioRecipe.js";
+import KrastorioResource from "../artifact/KrastorioResource.js";
 
 const generate = (resourceKeys, flags, filename0) => {
 	const content = DotGenerator.generate(

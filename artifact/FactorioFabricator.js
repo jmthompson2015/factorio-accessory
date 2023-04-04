@@ -38,4 +38,4 @@ const FactorioFabricator = {
 
 console.info(`Fabricator count = ${Object.keys(FactorioFabricator).length}`);
 
-module.exports = FactorioFabricator;
+export default FactorioFabricator;

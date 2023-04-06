@@ -1,5 +1,23 @@
 /* eslint no-console: ["error", { allow: ["info"] }] */
 
+const assemblers = [
+	"assembling_machine_1",
+	"assembling_machine_2",
+	"assembling_machine_3",
+	"advanced_assembly_machine",
+];
+
+const assemblersPlus = [...assemblers, "engineer"];
+
+const chemicalPlants = ["chemical_plant", "advanced_chemical_plant"];
+
+const furnaces = [
+	"stone_furnace",
+	"steel_furnace",
+	"electric_furnace",
+	"advanced_furnace",
+];
+
 const KrastorioRecipe = {
 	advanced_circuit: {
 		inputs: [
@@ -7,6 +25,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_components" },
 			{ resourceKey: "electronic_circuit" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "advanced_circuit" }],
 	},
 	advanced_splitter: {
@@ -15,6 +34,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "advanced_circuit" },
 			{ resourceKey: "express_splitter" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "advanced_splitter" }],
 	},
 	advanced_tech_card: {
@@ -24,6 +44,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "electric_engine_unit" },
 			{ resourceKey: "blank_tech_card" },
 		],
+		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "advanced_tech_card" }],
 	},
 	advanced_transport_belt: {
@@ -32,6 +53,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "steel_gear_wheel" },
 			{ resourceKey: "express_transport_belt" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "advanced_transport_belt" }],
 	},
 	advanced_underground_belt: {
@@ -39,6 +61,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "advanced_transport_belt" },
 			{ resourceKey: "express_underground_belt" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "advanced_underground_belt" }],
 	},
 	ai_core: {
@@ -47,10 +70,20 @@ const KrastorioRecipe = {
 			{ resourceKey: "imersite_crystal" },
 			{ resourceKey: "nitric_acid" },
 		],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
+		],
 		outputs: [{ resourceKey: "ai_core" }],
 	},
 	ammonia: {
 		inputs: [{ resourceKey: "hydrogen" }, { resourceKey: "nitrogen" }],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
+		],
 		outputs: [{ resourceKey: "ammonia" }],
 	},
 	automation_core: {
@@ -59,6 +92,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_stick" },
 			{ resourceKey: "iron_gear_wheel" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "automation_core" }],
 	},
 	automation_tech_card: {
@@ -66,10 +100,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "automation_core" },
 			{ resourceKey: "blank_tech_card" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "automation_tech_card" }],
 	},
 	basic_tech_card: {
 		inputs: [{ resourceKey: "wood" }, { resourceKey: "copper_cable" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "basic_tech_card" }],
 	},
 	blank_tech_card: {
@@ -77,10 +113,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_plate" },
 			{ resourceKey: "copper_cable" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "blank_tech_card" }],
 	},
 	charged_matter_stabilizer: {
 		inputs: [{ resourceKey: "matter_stabilizer" }],
+		fabricators: ["stabilizer_charging_station"],
 		outputs: [{ resourceKey: "charged_matter_stabilizer" }],
 	},
 	chemical_tech_card: {
@@ -90,14 +128,21 @@ const KrastorioRecipe = {
 			{ resourceKey: "blank_tech_card" },
 			{ resourceKey: "sulfuric_acid" },
 		],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
+		],
 		outputs: [{ resourceKey: "chemical_tech_card" }],
 	},
 	coke: {
 		inputs: [{ resourceKey: "wood" }, { resourceKey: "coal" }],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "coke" }],
 	},
 	copper_cable: {
 		inputs: [{ resourceKey: "copper_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "copper_cable" }],
 	},
 	electric_engine_unit: {
@@ -105,6 +150,11 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_circuit" },
 			{ resourceKey: "engine_unit" },
 			{ resourceKey: "lubricant" },
+		],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
 		],
 		outputs: [{ resourceKey: "electric_engine_unit" }],
 	},
@@ -114,6 +164,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_plate" },
 			{ resourceKey: "copper_cable" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "electronic_circuit" }],
 	},
 	electronic_components: {
@@ -122,6 +173,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "silicon" },
 			{ resourceKey: "plastic_bar" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "electronic_components" }],
 	},
 	energy_control_unit: {
@@ -131,6 +183,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "low_density_structure" },
 			{ resourceKey: "imersite_crystal" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "energy_control_unit" }],
 	},
 	engine_unit: {
@@ -139,6 +192,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_gear_wheel" },
 			{ resourceKey: "pipe" },
 		],
+		fabricators: assemblers,
 		outputs: [{ resourceKey: "engine_unit" }],
 	},
 	express_splitter: {
@@ -147,6 +201,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_components" },
 			{ resourceKey: "fast_splitter" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "express_splitter" }],
 	},
 	express_transport_belt: {
@@ -155,6 +210,11 @@ const KrastorioRecipe = {
 			{ resourceKey: "fast_transport_belt" },
 			{ resourceKey: "lubricant" },
 		],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
+		],
 		outputs: [{ resourceKey: "express_transport_belt" }],
 	},
 	express_underground_belt: {
@@ -162,6 +222,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "express_transport_belt" },
 			{ resourceKey: "fast_underground_belt" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "express_underground_belt" }],
 	},
 	fast_splitter: {
@@ -170,6 +231,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_circuit" },
 			{ resourceKey: "splitter" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "fast_splitter" }],
 	},
 	fast_transport_belt: {
@@ -177,6 +239,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_gear_wheel" },
 			{ resourceKey: "transport_belt" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "fast_transport_belt" }],
 	},
 	fast_underground_belt: {
@@ -184,18 +247,26 @@ const KrastorioRecipe = {
 			{ resourceKey: "fast_transport_belt" },
 			{ resourceKey: "underground_belt" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "fast_underground_belt" }],
 	},
 	glass: {
 		inputs: [{ resourceKey: "sand" }],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "glass" }],
 	},
 	grenade: {
 		inputs: [{ resourceKey: "coal" }, { resourceKey: "iron_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "grenade" }],
 	},
 	hydrogen_chloride: {
 		inputs: [{ resourceKey: "chlorine" }, { resourceKey: "hydrogen" }],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
+		],
 		outputs: [{ resourceKey: "hydrogen_chloride" }],
 	},
 	imersite_crystal: {
@@ -204,10 +275,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "nitric_acid" },
 			{ resourceKey: "sulfuric_acid" },
 		],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "imersite_crystal" }],
 	},
 	imersium_gear_wheel: {
 		inputs: [{ resourceKey: "imersium_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "imersium_gear_wheel" }],
 	},
 	imersium_plate: {
@@ -215,22 +288,27 @@ const KrastorioRecipe = {
 			{ resourceKey: "rare_metals" },
 			{ resourceKey: "imersite_powder" },
 		],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "imersium_plate" }],
 	},
 	iron_beam: {
 		inputs: [{ resourceKey: "iron_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "iron_beam" }],
 	},
 	iron_gear_wheel: {
 		inputs: [{ resourceKey: "iron_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "iron_gear_wheel" }],
 	},
 	iron_stick: {
 		inputs: [{ resourceKey: "iron_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "iron_stick" }],
 	},
 	lithium: {
 		inputs: [{ resourceKey: "lithium_chloride" }, { resourceKey: "water" }],
+		fabricators: ["electrolysis_plant"],
 		outputs: [{ resourceKey: "lithium" }],
 	},
 	lithium_chloride: {
@@ -238,6 +316,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "mineral_water" },
 			{ resourceKey: "hydrogen_chloride" },
 		],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "lithium_chloride" }],
 	},
 	lithium_sulfur_battery: {
@@ -246,6 +325,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "lithium" },
 			{ resourceKey: "sulfuric_acid" },
 		],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "lithium_sulfur_battery" }],
 	},
 	logistic_tech_card: {
@@ -254,6 +334,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_circuit" },
 			{ resourceKey: "blank_tech_card" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "logistic_tech_card" }],
 	},
 	low_density_structure: {
@@ -262,10 +343,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "steel_plate" },
 			{ resourceKey: "plastic_bar" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "low_density_structure" }],
 	},
 	lubricant: {
 		inputs: [{ resourceKey: "heavy_oil" }],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "lubricant" }],
 	},
 	matter_research_data: {
@@ -275,6 +358,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "lithium" },
 			{ resourceKey: "imersite_crystal" },
 		],
+		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "matter_research_data" }],
 	},
 	matter_stabilizer: {
@@ -283,6 +367,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "processing_unit" },
 			{ resourceKey: "energy_control_unit" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "matter_stabilizer" }],
 	},
 	matter_tech_card: {
@@ -291,6 +376,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "blank_tech_card" },
 			{ resourceKey: "matter_research_data" },
 		],
+		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "matter_tech_card" }],
 	},
 	military_research_data: {
@@ -299,6 +385,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "grenade" },
 			{ resourceKey: "wall" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "military_research_data" }],
 	},
 	military_tech_card: {
@@ -307,6 +394,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "blank_tech_card" },
 			{ resourceKey: "military_research_data" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "military_tech_card" }],
 	},
 	nitric_acid: {
@@ -315,6 +403,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "ammonia" },
 			{ resourceKey: "mineral_water" },
 		],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "nitric_acid" }],
 	},
 	optimization_tech_card: {
@@ -322,14 +411,17 @@ const KrastorioRecipe = {
 			{ resourceKey: "blank_tech_card" },
 			{ resourceKey: "space_research_data" },
 		],
+		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "optimization_tech_card" }],
 	},
 	pipe: {
 		inputs: [{ resourceKey: "iron_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "pipe" }],
 	},
 	plastic_bar: {
 		inputs: [{ resourceKey: "coal" }, { resourceKey: "petroleum_gas" }],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "plastic_bar" }],
 	},
 	processing_unit: {
@@ -337,6 +429,11 @@ const KrastorioRecipe = {
 			{ resourceKey: "rare_metals" },
 			{ resourceKey: "advanced_circuit" },
 			{ resourceKey: "sulfuric_acid" },
+		],
+		fabricators: [
+			"assembling_machine_2",
+			"assembling_machine_3",
+			"advanced_assembly_machine",
 		],
 		outputs: [{ resourceKey: "processing_unit" }],
 	},
@@ -347,6 +444,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "fast_transport_belt" },
 			{ resourceKey: "productivity_module_1" },
 		],
+		fabricators: ["research_server", "quantum_computer"],
 		outputs: [{ resourceKey: "production_tech_card" }],
 	},
 	productivity_module_1: {
@@ -354,10 +452,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "electronic_components" },
 			{ resourceKey: "electronic_circuit" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "productivity_module_1" }],
 	},
 	quartz: {
 		inputs: [{ resourceKey: "sand" }, { resourceKey: "water" }],
+		fabricators: ["filtration_plant"],
 		outputs: [{ resourceKey: "quartz" }],
 	},
 	rocket_fuel: {
@@ -366,14 +466,17 @@ const KrastorioRecipe = {
 			{ resourceKey: "light_oil" },
 			{ resourceKey: "oxygen" },
 		],
+		fabricators: ["fuel_refinery"],
 		outputs: [{ resourceKey: "rocket_fuel" }],
 	},
 	sand: {
 		inputs: [{ resourceKey: "stone" }],
+		fabricators: ["crusher"],
 		outputs: [{ resourceKey: "sand" }],
 	},
 	silicon: {
 		inputs: [{ resourceKey: "quartz" }],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "silicon" }],
 	},
 	singularity_tech_card: {
@@ -382,6 +485,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "charged_matter_stabilizer" },
 			{ resourceKey: "blank_tech_card" },
 		],
+		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "singularity_tech_card" }],
 	},
 	splitter: {
@@ -390,18 +494,22 @@ const KrastorioRecipe = {
 			{ resourceKey: "automation_core" },
 			{ resourceKey: "transport_belt" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "splitter" }],
 	},
 	steel_gear_wheel: {
 		inputs: [{ resourceKey: "steel_plate" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "steel_gear_wheel" }],
 	},
 	steel_plate: {
 		inputs: [{ resourceKey: "coke" }, { resourceKey: "iron_plate" }],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "steel_plate" }],
 	},
 	stone_brick: {
 		inputs: [{ resourceKey: "stone" }],
+		fabricators: furnaces,
 		outputs: [{ resourceKey: "stone_brick" }],
 	},
 	submachine_gun: {
@@ -410,10 +518,12 @@ const KrastorioRecipe = {
 			{ resourceKey: "copper_plate" },
 			{ resourceKey: "iron_gear_wheel" },
 		],
+		fabricators: assemblersPlus,
 		outputs: [{ resourceKey: "submachine_gun" }],
 	},
 	sulfur: {
 		inputs: [{ resourceKey: "water" }, { resourceKey: "petroleum_gas" }],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "sulfur" }],
 	},
 	sulfuric_acid: {
@@ -422,6 +532,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "sulfur" },
 			{ resourceKey: "water" },
 		],
+		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "sulfuric_acid" }],
 	},
 	transport_belt: {
@@ -429,6 +540,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_plate" },
 			{ resourceKey: "iron_gear_wheel" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "transport_belt" }],
 	},
 	underground_belt: {
@@ -436,6 +548,7 @@ const KrastorioRecipe = {
 			{ resourceKey: "iron_beam" },
 			{ resourceKey: "transport_belt" },
 		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "underground_belt" }],
 	},
 	utility_tech_card: {
@@ -445,14 +558,17 @@ const KrastorioRecipe = {
 			{ resourceKey: "rocket_fuel" },
 			{ resourceKey: "blank_tech_card" },
 		],
+		fabricators: ["research_server", "quantum_computer"],
 		outputs: [{ resourceKey: "utility_tech_card" }],
 	},
 	wall: {
 		inputs: [{ resourceKey: "stone_brick" }],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
 		outputs: [{ resourceKey: "wall" }],
 	},
 	wood: {
 		inputs: [{ resourceKey: "water" }],
+		fabricators: ["greenhouse"],
 		outputs: [{ resourceKey: "wood" }],
 	},
 };

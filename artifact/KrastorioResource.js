@@ -14,6 +14,7 @@ const KrastorioResource = {
 	advanced_tech_card: {
 		name: "Advanced Tech Card",
 		image: "icons/krastorio/advanced-tech-card.png",
+		isRaw: true,
 	},
 	advanced_transport_belt: {
 		name: "Advanced Transport Belt",
@@ -26,6 +27,7 @@ const KrastorioResource = {
 	ai_core: {
 		name: "AI Core",
 		image: "icons/krastorio/ai-core.png",
+		isRaw: true,
 	},
 	ammonia: {
 		name: "Ammonia",
@@ -51,10 +53,12 @@ const KrastorioResource = {
 	charged_matter_stabilizer: {
 		name: "Charged Matter Stabilizer",
 		image: "icons/krastorio/charged-matter-stabilizer.png",
+		isRaw: true,
 	},
 	chemical_tech_card: {
 		name: "Chemical Tech Card",
 		image: "icons/krastorio/chemical-tech-card.png",
+		isRaw: true,
 	},
 	chlorine: {
 		name: "Chlorine",
@@ -70,6 +74,7 @@ const KrastorioResource = {
 	coke: {
 		name: "Coke",
 		image: "icons/krastorio/coke.png",
+		isRaw: true,
 	},
 	copper_cable: {
 		name: "Copper Cable",
@@ -100,6 +105,7 @@ const KrastorioResource = {
 	engine_unit: {
 		name: "Engine Unit",
 		image: "icons/Engine_unit.png",
+		isRaw: true,
 	},
 	express_splitter: {
 		name: "Express Splitter",
@@ -108,7 +114,7 @@ const KrastorioResource = {
 	express_transport_belt: {
 		name: "Express Transport Belt",
 		image: "icons/Express_transport_belt.png",
-		// isRaw: true,
+		isRaw: true,
 	},
 	express_underground_belt: {
 		name: "Express Underground Belt",
@@ -153,6 +159,7 @@ const KrastorioResource = {
 	imersite_crystal: {
 		name: "Imersite Crystal",
 		image: "icons/krastorio/imersite-crystal.png",
+		isRaw: true,
 	},
 	imersite_powder: {
 		name: "Imersite Powder",
@@ -166,6 +173,7 @@ const KrastorioResource = {
 	imersium_plate: {
 		name: "Imersium Plate",
 		image: "icons/krastorio/imersium-plate.png",
+		isRaw: true,
 	},
 	iron_beam: {
 		name: "Iron Beam",
@@ -202,6 +210,7 @@ const KrastorioResource = {
 	lithium_sulfur_battery: {
 		name: "Lithium-Sulfur Battery",
 		image: "icons/krastorio/lithium-sulfur-battery.png",
+		isRaw: true,
 	},
 	logistic_tech_card: {
 		name: "Logistic Tech Card",
@@ -219,6 +228,7 @@ const KrastorioResource = {
 	matter_research_data: {
 		name: "Matter Research Data",
 		image: "icons/krastorio/matter-research-data.png",
+		isRaw: true,
 	},
 	matter_stabilizer: {
 		name: "Matter Stabilizer",
@@ -227,6 +237,7 @@ const KrastorioResource = {
 	matter_tech_card: {
 		name: "Matter Tech Card",
 		image: "icons/krastorio/matter-tech-card.png",
+		isRaw: true,
 	},
 	military_research_data: {
 		name: "Military Research Data",
@@ -254,6 +265,7 @@ const KrastorioResource = {
 	optimization_tech_card: {
 		name: "Optimization Tech Card",
 		image: "icons/krastorio/optimization-tech-card.png",
+		isRaw: true,
 	},
 	oxygen: {
 		name: "Oxygen",
@@ -277,10 +289,12 @@ const KrastorioResource = {
 	processing_unit: {
 		name: "Processing Unit",
 		image: "icons/krastorio/processing-unit.png",
+		isRaw: true,
 	},
 	production_tech_card: {
 		name: "Production Tech Card",
 		image: "icons/krastorio/production-tech-card.png",
+		isRaw: true,
 	},
 	productivity_module_1: {
 		name: "Productivity Module 1",
@@ -299,6 +313,7 @@ const KrastorioResource = {
 	rocket_fuel: {
 		name: "Rocket Fuel",
 		image: "icons/Rocket_fuel.png",
+		isRaw: true,
 	},
 	sand: {
 		name: "Sand",
@@ -313,6 +328,7 @@ const KrastorioResource = {
 	singularity_tech_card: {
 		name: "Singularity Tech Card",
 		image: "icons/krastorio/singularity-tech-card.png",
+		isRaw: true,
 	},
 	space_research_data: {
 		name: "Space Research Data",
@@ -329,10 +345,12 @@ const KrastorioResource = {
 	steel_plate: {
 		name: "Steel Plate",
 		image: "icons/krastorio/steel-plate.png",
+		isRaw: true,
 	},
 	stone: {
 		name: "Stone",
 		image: "icons/Stone.png",
+		isMap: true,
 		isRaw: true,
 	},
 	stone_brick: {
@@ -370,6 +388,7 @@ const KrastorioResource = {
 	utility_tech_card: {
 		name: "Utility Tech Card",
 		image: "icons/krastorio/utility-tech-card.png",
+		isRaw: true,
 	},
 	wall: {
 		name: "Wall",

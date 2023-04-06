@@ -1,5 +1,8 @@
 import * as R from "ramda";
 
+const isRaw = (resource) =>
+	resource.clientProps ? resource.clientProps.isRaw : resource.isRaw;
+
 const mapResourceKey = (input) => input.resourceKey;
 
 const findRecipes = (myRecipes, outputKey) => {
@@ -22,7 +25,7 @@ ResourceReport.hasRawFlag = (myRecipes, myResources) => {
 	const resourceKeys = Object.keys(myResources);
 	const filterFunction = (resourceKey) => {
 		const resource = myResources[resourceKey];
-		return R.isNil(resource.isRaw) ? false : resource.isRaw;
+		return isRaw(resource);
 	};
 	const rawResourceKeys = R.filter(filterFunction, resourceKeys);
 
@@ -73,7 +76,7 @@ ResourceReport.missingRawFlag = (myRecipes, myResources) => {
 
 	const reduceFunction2 = (accum, resourceKey) => {
 		const resource = myResources[resourceKey];
-		if (R.isNil(resource.isRaw)) {
+		if (R.isNil(isRaw(resource))) {
 			return R.uniq(R.append(resourceKey, accum));
 		}
 		return accum;
@@ -93,7 +96,7 @@ ResourceReport.missingRawFlag = (myRecipes, myResources) => {
 ResourceReport.rawResourceReport = (myResources) => {
 	const resourceKeys2 = Object.keys(myResources);
 	const filterFunction = (resourceKey) => {
-		return myResources[resourceKey].isRaw;
+		return isRaw(myResources[resourceKey]);
 	};
 	const rawKeys = R.filter(filterFunction, resourceKeys2);
 	rawKeys.sort();

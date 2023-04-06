@@ -2,6 +2,14 @@
 
 /* eslint no-console: ["error", { allow: ["info"] }] */
 
+/*
+ * These lines use RecipeJS.
+ *
+import RecipeJS from "../../recipejs/dist/recipejs.js";
+
+const { ResourceData } = RecipeJS;
+*/
+
 const FactorioResource = {
 	accumulator: {
 		name: "Accumulator",
@@ -28,6 +36,15 @@ const FactorioResource = {
 		name: "Automation Science Pack",
 		image: "icons/Automation_science_pack.png",
 	},
+	/*
+	 * These lines use RecipeJS.
+	 * 
+	battery: ResourceData.create({
+		name: "Battery",
+		image: "icons/Battery.png",
+		clientProps: { isBus: true, isRaw: true },
+	}),
+	*/
 	battery: {
 		name: "Battery",
 		image: "icons/Battery.png",

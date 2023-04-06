@@ -1,5 +1,13 @@
 /* eslint no-console: ["error", { allow: ["info"] }] */
 
+/*
+ * These lines use RecipeJS.
+ *
+import RecipeJS from "../../recipejs/dist/recipejs.js";
+
+const { IngredientData, RecipeData, ResourceData } = RecipeJS;
+*/
+
 const assemblers = [
 	"assembling_machine_1",
 	"assembling_machine_2",
@@ -19,6 +27,20 @@ const FactorioRecipe = {
 		fabricators: assemblersPlus,
 		outputs: [{ amount: 1, resourceKey: "accumulator" }],
 	},
+	/*
+ 	* These lines use RecipeJS.
+ 	*
+	accumulator: RecipeData.create({
+		inputs: [
+			IngredientData.create({ amount: 5, resourceKey: "battery" }),
+			IngredientData.create({ amount: 2, resourceKey: "iron_plate" }),
+		],
+		fabricators: assemblersPlus,
+		outputs: [
+			IngredientData.create({ amount: 1, resourceKey: "accumulator" }),
+		],
+	}),
+	*/
 	advanced_circuit: {
 		inputs: [
 			{ amount: 4, resourceKey: "copper_cable" },

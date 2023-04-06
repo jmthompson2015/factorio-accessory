@@ -2,6 +2,15 @@ import * as R from "ramda";
 
 import FileWriter from "../utility/FileWriter.js";
 
+const isBus = (resource) =>
+	resource.clientProps ? resource.clientProps.isBus : resource.isBus;
+
+const isMap = (resource) =>
+	resource.clientProps ? resource.clientProps.isMap : resource.isMap;
+
+const isRaw = (resource) =>
+	resource.clientProps ? resource.clientProps.isRaw : resource.isRaw;
+
 const resourceKeys = (array) => R.map((e) => e.resourceKey, array);
 
 const findRecipes = (myRecipes, outputKey) => {
@@ -31,7 +40,7 @@ const generateAttributes = (myResources, keys) => {
 		if (R.isNil(resource.image)) {
 			const name = R.replace(/ /g, "\\n", resource.name);
 			answer = accum + `${key} [label=\"${name}\"`;
-			if (!resource.isRaw) {
+			if (!isRaw(resource)) {
 				answer += `; shape=box`;
 			}
 			if (resource.color) {
@@ -50,7 +59,7 @@ const generateAttributes = (myResources, keys) => {
 	   <tr><td>${name}</td></tr>
 	</table>
 >`;
-			if (!resource.isRaw) {
+			if (!isRaw(resource)) {
 				answer += `; shape=box`;
 			}
 			if (resource.color) {
@@ -69,7 +78,7 @@ const generateAttributes = (myResources, keys) => {
 const generateEdges = (myRecipes, myResources, keys, isBusStop, isRawStop) => {
 	const reduceFunction1 = (accum1, key1) => {
 		const resource = myResources[key1];
-		if ((isBusStop && resource.isBus) || (isRawStop && resource.isRaw)) {
+		if ((isBusStop && isBus(resource)) || (isRawStop && isRaw(resource))) {
 			return accum1;
 		}
 		const reduceFunction2 = (accum2, key2) => {
@@ -103,7 +112,7 @@ const getResourceKeys = (
 ) => {
 	let answer = [resourceKey];
 	const resource = myResources[resourceKey];
-	if ((isBusStop && resource.isBus) || (isRawStop && resource.isRaw)) {
+	if ((isBusStop && isBus(resource)) || (isRawStop && isRaw(resource))) {
 		return answer;
 	}
 	const recipes = findRecipes(myRecipes, resourceKey);
@@ -197,7 +206,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 			if (!myResources[key]) {
 				console.error(`Missing resource for key = :${key}:`);
 			}
-			return myResources[key].isMap;
+			return isMap(myResources[key]);
 		};
 
 		const mapKeys = R.filter(mapFilter, allKeys);
@@ -211,7 +220,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 			if (!myResources[key]) {
 				console.error(`Missing resource for key = :${key}:`);
 			}
-			return myResources[key].isBus;
+			return isBus(myResources[key]);
 		};
 
 		const busKeys = R.filter(busFilter, allKeys);
@@ -225,7 +234,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 			if (!myResources[key]) {
 				console.error(`Missing resource for key = :${key}:`);
 			}
-			return myResources[key].isRaw;
+			return isRaw(myResources[key]);
 		};
 
 		const rawKeys = R.filter(rawFilter, allKeys);

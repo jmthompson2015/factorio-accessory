@@ -372,6 +372,18 @@ const KrastorioResource = {
 		image: "icons/krastorio/sulfuric-acid.png",
 		isRaw: true,
 	},
+	superior_splitter: {
+		name: "Superior Splitter",
+		image: "icons/krastorio/superior-splitter.png",
+	},
+	superior_transport_belt: {
+		name: "Superior Transport Belt",
+		image: "icons/krastorio/superior-transport-belt.png",
+	},
+	superior_underground_belt: {
+		name: "Superior Underground Belt",
+		image: "icons/krastorio/superior-underground-belt.png",
+	},
 	transport_belt: {
 		name: "Transport Belt",
 		image: "icons/Transport_belt.png",

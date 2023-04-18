@@ -535,6 +535,32 @@ const KrastorioRecipe = {
 		fabricators: chemicalPlants,
 		outputs: [{ resourceKey: "sulfuric_acid" }],
 	},
+	superior_splitter: {
+		inputs: [
+			{ resourceKey: "imersium_gear_wheel" },
+			{ resourceKey: "processing_unit" },
+			{ resourceKey: "advanced_splitter" },
+		],
+		fabricators: assemblersPlus,
+		outputs: [{ resourceKey: "superior_splitter" }],
+	},
+	superior_transport_belt: {
+		inputs: [
+			{ resourceKey: "imersium_gear_wheel" },
+			{ resourceKey: "low_density_structure" },
+			{ resourceKey: "advanced_transport_belt" },
+		],
+		fabricators: assemblersPlus,
+		outputs: [{ resourceKey: "superior_transport_belt" }],
+	},
+	superior_underground_belt: {
+		inputs: [
+			{ resourceKey: "superior_transport_belt" },
+			{ resourceKey: "advanced_underground_belt" },
+		],
+		fabricators: [...assemblersPlus, "damaged_ship_assembler"],
+		outputs: [{ resourceKey: "superior_underground_belt" }],
+	},
 	transport_belt: {
 		inputs: [
 			{ resourceKey: "iron_plate" },

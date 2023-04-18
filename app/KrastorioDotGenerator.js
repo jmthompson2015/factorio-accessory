@@ -44,18 +44,12 @@ generate("singularity_tech_card", techFlags);
 // ////////////////////////////////////////////////////////////////////////////
 generate(
 	[
-		"transport_belt",
-		"underground_belt",
-		"splitter",
-		"fast_transport_belt",
-		"fast_underground_belt",
-		"fast_splitter",
-		"express_transport_belt",
-		"express_underground_belt",
-		"express_splitter",
 		"advanced_transport_belt",
 		"advanced_underground_belt",
 		"advanced_splitter",
+		"superior_transport_belt",
+		"superior_underground_belt",
+		"superior_splitter",
 	],
 	{ isRawStop: true },
 	"transport_belts.dot"

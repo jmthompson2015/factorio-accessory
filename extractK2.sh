@@ -68,5 +68,8 @@ sips ${OPTIONS} -o ${OUTPUT_DIR}/space-research-data.png ${INPUT_DIR1}/space-res
 sips ${OPTIONS} -o ${OUTPUT_DIR}/steel-gear-wheel.png ${INPUT_DIR3}/steel-gear-wheel.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/steel-plate.png ${INPUT_DIR3}/steel-plate.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/sulfuric-acid.png ${INPUT_DIR2}/sulfuric-acid.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/superior-splitter.png ${INPUT_DIR5}/superior-transport-belt/superior-splitter.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/superior-transport-belt.png ${INPUT_DIR5}/superior-transport-belt/superior-transport-belt.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/superior-underground-belt.png ${INPUT_DIR5}/superior-transport-belt/superior-underground-belt.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/utility-tech-card.png ${INPUT_DIR1}/utility-tech-card.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/water.png ${INPUT_DIR2}/water.png

@@ -1,4 +1,4 @@
-import * as R from "ramda";
+import * as R from "../node_modules/ramda/es/index.js";
 
 class RecipeFunction {
 	constructor(myRecipes) {

@@ -273,6 +273,7 @@ const KrastorioResource = {
 	},
 	military_research_data: {
 		name: "Military Research Data",
+		image: "icons/krastorio/military-research-data.png",
 	},
 	military_tech_card: {
 		name: "Military Tech Card",

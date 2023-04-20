@@ -53,6 +53,7 @@ sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-cube.png ${INPUT_DIR3}/matter-cube.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-research-data.png ${INPUT_DIR1}/matter-research-data.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-stabilizer.png ${INPUT_DIR3}/matter-stabilizer.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-tech-card.png ${INPUT_DIR1}/matter-tech-card.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/military-research-data.png ${INPUT_DIR1}/biters-research-data.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/military-tech-card.png ${INPUT_DIR1}/military-tech-card.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/mineral-water.png ${INPUT_DIR2}/mineral-water.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/nitric-acid.png ${INPUT_DIR2}/nitric-acid.png

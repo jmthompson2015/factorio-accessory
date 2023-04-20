@@ -1,4 +1,4 @@
-import * as R from "ramda";
+import * as R from "../node_modules/ramda/es/index.js";
 
 import FileWriter from "../utility/FileWriter.js";
 
@@ -11,14 +11,10 @@ import ResourceFunction from "../model/ResourceFunction.js";
 
 const recipeFunction = new RecipeFunction(KrastorioRecipe);
 const resourceFunction = new ResourceFunction(KrastorioResource);
+const dotGenerator = new DotGenerator(recipeFunction, resourceFunction);
 
 const generate = (resourceKeys, flags, filename0) => {
-	const content = DotGenerator.generate(
-		recipeFunction,
-		resourceFunction,
-		resourceKeys,
-		flags
-	);
+	const content = dotGenerator.generate(resourceKeys, flags);
 	const filename = filename0 ? filename0 : `${resourceKeys}.dot`;
 	FileWriter.writeFile(`dot/krastorio/${filename}`, content);
 };

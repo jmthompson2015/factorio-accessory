@@ -6,10 +6,16 @@ import DotGenerator from "./DotGenerator.js";
 import FactorioRecipe from "../artifact/FactorioRecipe.js";
 import FactorioResource from "../artifact/FactorioResource.js";
 
+import RecipeFunction from "../model/RecipeFunction.js";
+import ResourceFunction from "../model/ResourceFunction.js";
+
+const recipeFunction = new RecipeFunction(FactorioRecipe);
+const resourceFunction = new ResourceFunction(FactorioResource);
+
 const generate = (resourceKeys, flags, filename0) => {
 	const content = DotGenerator.generate(
-		FactorioRecipe,
-		FactorioResource,
+		recipeFunction,
+		resourceFunction,
 		resourceKeys,
 		flags
 	);

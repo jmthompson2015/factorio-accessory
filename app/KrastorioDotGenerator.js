@@ -6,10 +6,16 @@ import DotGenerator from "./DotGenerator.js";
 import KrastorioRecipe from "../artifact/KrastorioRecipe.js";
 import KrastorioResource from "../artifact/KrastorioResource.js";
 
+import RecipeFunction from "../model/RecipeFunction.js";
+import ResourceFunction from "../model/ResourceFunction.js";
+
+const recipeFunction = new RecipeFunction(KrastorioRecipe);
+const resourceFunction = new ResourceFunction(KrastorioResource);
+
 const generate = (resourceKeys, flags, filename0) => {
 	const content = DotGenerator.generate(
-		KrastorioRecipe,
-		KrastorioResource,
+		recipeFunction,
+		resourceFunction,
 		resourceKeys,
 		flags
 	);
@@ -43,15 +49,9 @@ generate("singularity_tech_card", techFlags);
 
 // ////////////////////////////////////////////////////////////////////////////
 {
-	const filterFunction = (recipeKey) => {
-		const recipe = KrastorioRecipe[recipeKey];
-		return recipe.fabricators.includes("matter_assembler");
-	};
-	const maRecipeKeys = R.filter(filterFunction, Object.keys(KrastorioRecipe));
-	const mapResourceKey = (output) => output.resourceKey;
+	const maRecipeKeys = recipeFunction.findByFabricator("matter_assembler");
 	const reduceFunction = (accum, recipeKey) => {
-		const recipe = KrastorioRecipe[recipeKey];
-		const outputKeys = R.map(mapResourceKey, recipe.outputs);
+		const outputKeys = recipeFunction.outputKeys(recipeKey);
 		return R.uniq(R.concat(accum, outputKeys));
 	};
 	const resourceKeys = R.reduce(reduceFunction, [], maRecipeKeys);
@@ -73,15 +73,14 @@ generate(
 );
 
 {
-	const mapResourceKey = (output) => output.resourceKey;
-	const reduceFunction = (accum, recipe) => {
-		const outputKeys = R.map(mapResourceKey, recipe.outputs);
+	const reduceFunction = (accum, recipeKey) => {
+		const outputKeys = recipeFunction.outputKeys(recipeKey);
 		return R.uniq(R.concat(accum, outputKeys));
 	};
 	const resourceKeys = R.reduce(
 		reduceFunction,
 		[],
-		Object.values(KrastorioRecipe)
+		Object.keys(KrastorioRecipe)
 	);
 
 	generate(resourceKeys, {}, "everything.dot");

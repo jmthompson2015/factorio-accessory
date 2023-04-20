@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/jmthompson2015/factorio-accessory#readme",
   "devDependencies": {
-    "eslint": "^8.34.0",
+    "eslint": "^8.38.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.1.0"
+    "eslint-config-prettier": "^8.8.0",
+    "qunit": "^2.19.4"
   },
   "dependencies": {
-    "ramda": "^0.28.0"
+    "ramda": "^0.29.0"
   }
 }

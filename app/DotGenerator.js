@@ -2,35 +2,9 @@ import * as R from "ramda";
 
 import FileWriter from "../utility/FileWriter.js";
 
-const isBus = (resource) =>
-	resource.clientProps ? resource.clientProps.isBus : resource.isBus;
-
-const isMap = (resource) =>
-	resource.clientProps ? resource.clientProps.isMap : resource.isMap;
-
-const isRaw = (resource) =>
-	resource.clientProps ? resource.clientProps.isRaw : resource.isRaw;
-
-const resourceKeys = (array) => R.map((e) => e.resourceKey, array);
-
-const findRecipes = (myRecipes, outputKey) => {
-	let answer;
-	const filterFunction = (recipeKey) => {
-		const recipe = myRecipes[recipeKey];
-		const outputKeys = resourceKeys(recipe.outputs);
-		return outputKeys.includes(outputKey);
-	};
-	const recipeKeys = R.filter(filterFunction, Object.keys(myRecipes));
-	if (recipeKeys.length > 0) {
-		answer = R.map((key) => myRecipes[key], recipeKeys);
-	}
-
-	return answer;
-};
-
-const generateAttributes = (myResources, keys) => {
+const generateAttributes = (resourceFunction, keys) => {
 	const reduceFunction = (accum, key) => {
-		const resource = myResources[key];
+		const resource = resourceFunction.resource(key);
 		if (R.isNil(resource)) {
 			console.error(`Missing resource for key :${key}:`);
 		}
@@ -40,7 +14,7 @@ const generateAttributes = (myResources, keys) => {
 		if (R.isNil(resource.image)) {
 			const name = R.replace(/ /g, "\\n", resource.name);
 			answer = accum + `${key} [label=\"${name}\"`;
-			if (!isRaw(resource)) {
+			if (!resourceFunction.isRaw(key)) {
 				answer += `; shape=box`;
 			}
 			if (resource.color) {
@@ -59,7 +33,7 @@ const generateAttributes = (myResources, keys) => {
 	   <tr><td>${name}</td></tr>
 	</table>
 >`;
-			if (!isRaw(resource)) {
+			if (!resourceFunction.isRaw(key)) {
 				answer += `; shape=box`;
 			}
 			if (resource.color) {
@@ -75,10 +49,18 @@ const generateAttributes = (myResources, keys) => {
 	return R.reduce(reduceFunction, "", keys);
 };
 
-const generateEdges = (myRecipes, myResources, keys, isBusStop, isRawStop) => {
+const generateEdges = (
+	recipeFunction,
+	resourceFunction,
+	keys,
+	isBusStop,
+	isRawStop
+) => {
 	const reduceFunction1 = (accum1, key1) => {
-		const resource = myResources[key1];
-		if ((isBusStop && isBus(resource)) || (isRawStop && isRaw(resource))) {
+		if (
+			(isBusStop && resourceFunction.isBus(key1)) ||
+			(isRawStop && resourceFunction.isRaw(key1))
+		) {
 			return accum1;
 		}
 		const reduceFunction2 = (accum2, key2) => {
@@ -88,17 +70,17 @@ const generateEdges = (myRecipes, myResources, keys, isBusStop, isRawStop) => {
 				return accum2;
 			}
 		};
-		const recipes = findRecipes(myRecipes, key1);
-		const reduceFunction3 = (accum3, recipe) => {
+		const recipeKeys = recipeFunction.findByOutput(key1);
+		const reduceFunction3 = (accum3, recipeKey) => {
 			return R.reduce(
 				reduceFunction2,
 				accum3,
-				resourceKeys(recipe.inputs)
+				recipeFunction.inputKeys(recipeKey)
 			);
 		};
 
-		if (recipes) {
-			return R.reduce(reduceFunction3, accum1, recipes);
+		if (recipeKeys) {
+			return R.reduce(reduceFunction3, accum1, recipeKeys);
 		}
 
 		return accum1;
@@ -108,45 +90,41 @@ const generateEdges = (myRecipes, myResources, keys, isBusStop, isRawStop) => {
 };
 
 const getResourceKeys = (
-	myRecipes,
-	myResources,
+	recipeFunction,
+	resourceFunction,
 	resourceKey,
 	isBusStop,
 	isRawStop
 ) => {
 	let answer = [resourceKey];
-	const resource = myResources[resourceKey];
-	if ((isBusStop && isBus(resource)) || (isRawStop && isRaw(resource))) {
+	if (
+		(isBusStop && resourceFunction.isBus(resourceKey)) ||
+		(isRawStop && resourceFunction.isRaw(resourceKey))
+	) {
 		return answer;
 	}
-	const recipes = findRecipes(myRecipes, resourceKey);
+	const recipeKeys = recipeFunction.findByOutput(resourceKey);
 
-	if (recipes) {
-		const reduceFunction2 = (accum2, recipe) => {
-			if (recipe) {
-				const inputKeys = R.uniq(resourceKeys(recipe.inputs));
-				const reduceFunction1 = (accum1, key1) => {
-					const resource = myResources[key1];
-					const keys = getResourceKeys(
-						myRecipes,
-						myResources,
-						key1,
-						isBusStop,
-						isRawStop
-					);
-					return R.uniq(R.concat(accum1, keys));
-				};
-				const moreKeys = R.reduce(
-					reduceFunction1,
-					inputKeys,
-					inputKeys
+	if (recipeKeys) {
+		const reduceFunction2 = (accum2, recipeKey) => {
+			const inputKeys = R.uniq(recipeFunction.inputKeys(recipeKey));
+			const reduceFunction1 = (accum1, key1) => {
+				const resource = resourceFunction.resource(key1);
+				const keys = getResourceKeys(
+					recipeFunction,
+					resourceFunction,
+					key1,
+					isBusStop,
+					isRawStop
 				);
+				return R.uniq(R.concat(accum1, keys));
+			};
+			const moreKeys = R.reduce(reduceFunction1, inputKeys, inputKeys);
 
-				return R.uniq(R.concat(accum2, moreKeys));
-			}
+			return R.uniq(R.concat(accum2, moreKeys));
 		};
 
-		return R.uniq(R.reduce(reduceFunction2, answer, recipes));
+		return R.uniq(R.reduce(reduceFunction2, answer, recipeKeys));
 	}
 
 	return answer;
@@ -157,7 +135,12 @@ const FOOTER = "}\n";
 
 const DotGenerator = {};
 
-DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
+DotGenerator.generate = (
+	recipeFunction,
+	resourceFunction,
+	resourceKeys,
+	flags = {}
+) => {
 	const {
 		isBusBox,
 		isBusStop,
@@ -177,8 +160,8 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 				R.concat(
 					accum,
 					getResourceKeys(
-						myRecipes,
-						myResources,
+						recipeFunction,
+						resourceFunction,
 						key,
 						isBusStop,
 						isRawStop
@@ -189,8 +172,8 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 		leafString = R.reduce(reduceFunction1, "", resourceKeys);
 	} else {
 		allKeys0 = getResourceKeys(
-			myRecipes,
-			myResources,
+			recipeFunction,
+			resourceFunction,
 			resourceKeys,
 			isBusStop,
 			isRawStop
@@ -206,13 +189,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 	}
 
 	if (isMapBox) {
-		const mapFilter = (key) => {
-			if (!myResources[key]) {
-				console.error(`Missing resource for key = :${key}:`);
-			}
-			return isMap(myResources[key]);
-		};
-
+		const mapFilter = (key) => resourceFunction.isMap(key);
 		const mapKeys = R.filter(mapFilter, allKeys);
 		const mapString = R.reduce(reduceFunction1, "", mapKeys);
 		answer += `subgraph cluster_map { label = "Map Resource"; ${mapString}}\n`;
@@ -220,13 +197,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 	}
 
 	if (isBusBox) {
-		const busFilter = (key) => {
-			if (!myResources[key]) {
-				console.error(`Missing resource for key = :${key}:`);
-			}
-			return isBus(myResources[key]);
-		};
-
+		const busFilter = (key) => resourceFunction.isBus(key);
 		const busKeys = R.filter(busFilter, allKeys);
 		const busString = R.reduce(reduceFunction1, "", busKeys);
 		answer += `subgraph cluster_bus { label = "Main Bus"; ${busString}}\n`;
@@ -234,13 +205,7 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 	}
 
 	if (isRawBox) {
-		const rawFilter = (key) => {
-			if (!myResources[key]) {
-				console.error(`Missing resource for key = :${key}:`);
-			}
-			return isRaw(myResources[key]);
-		};
-
+		const rawFilter = (key) => resourceFunction.isRaw(key);
 		const rawKeys = R.filter(rawFilter, allKeys);
 		const rawString = R.reduce(reduceFunction1, "", rawKeys);
 		answer += `subgraph cluster_raw { label = "Raw Resource"; ${rawString}}\n`;
@@ -252,11 +217,11 @@ DotGenerator.generate = (myRecipes, myResources, resourceKeys, flags = {}) => {
 		answer += "\n";
 	}
 
-	answer += generateAttributes(myResources, allKeys);
+	answer += generateAttributes(resourceFunction, allKeys);
 	answer += "\n";
 	answer += generateEdges(
-		myRecipes,
-		myResources,
+		recipeFunction,
+		resourceFunction,
 		allKeys,
 		isBusStop,
 		isRawStop

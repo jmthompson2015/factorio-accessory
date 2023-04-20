@@ -42,6 +42,23 @@ generate("advanced_tech_card", techFlags);
 generate("singularity_tech_card", techFlags);
 
 // ////////////////////////////////////////////////////////////////////////////
+{
+	const filterFunction = (recipeKey) => {
+		const recipe = KrastorioRecipe[recipeKey];
+		return recipe.fabricators.includes("matter_assembler");
+	};
+	const maRecipeKeys = R.filter(filterFunction, Object.keys(KrastorioRecipe));
+	const mapResourceKey = (output) => output.resourceKey;
+	const reduceFunction = (accum, recipeKey) => {
+		const recipe = KrastorioRecipe[recipeKey];
+		const outputKeys = R.map(mapResourceKey, recipe.outputs);
+		return R.uniq(R.concat(accum, outputKeys));
+	};
+	const resourceKeys = R.reduce(reduceFunction, [], maRecipeKeys);
+
+	generate(resourceKeys, {}, "matter_assembler.dot");
+}
+
 generate(
 	[
 		"advanced_transport_belt",

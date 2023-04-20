@@ -82,7 +82,11 @@ const generateEdges = (myRecipes, myResources, keys, isBusStop, isRawStop) => {
 			return accum1;
 		}
 		const reduceFunction2 = (accum2, key2) => {
-			return accum2 + `${key2} -> ${key1};\n`;
+			if (keys.includes(key2)) {
+				return accum2 + `${key2} -> ${key1};\n`;
+			} else {
+				return accum2;
+			}
 		};
 		const recipes = findRecipes(myRecipes, key1);
 		const reduceFunction3 = (accum3, recipe) => {

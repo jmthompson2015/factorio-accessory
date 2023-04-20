@@ -12,6 +12,7 @@ dot -Tpng dot/krastorio/matter_tech_card.dot -o dist/krastorio/matter_tech_card.
 dot -Tpng dot/krastorio/advanced_tech_card.dot -o dist/krastorio/advanced_tech_card.png
 dot -Tpng dot/krastorio/singularity_tech_card.dot -o dist/krastorio/singularity_tech_card.png
 
+dot -Tpng dot/krastorio/matter_assembler.dot -o dist/krastorio/matter_assembler.png
 dot -Tpng dot/krastorio/transport_belts.dot -o dist/krastorio/transport_belts.png
 
 neato -Tpng dot/krastorio/everything.dot -Goverlap=false -Gsplines=true -o dist/krastorio/everything.png

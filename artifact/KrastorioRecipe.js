@@ -379,6 +379,121 @@ const KrastorioRecipe = {
 		fabricators: ["quantum_computer"],
 		outputs: [{ resourceKey: "matter_tech_card" }],
 	},
+	matter_to_biomass: {
+		inputs: [{ amount: 5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "biomass" }],
+	},
+	matter_to_coal: {
+		inputs: [{ amount: 3.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "coal" }],
+	},
+	matter_to_copper_ore: {
+		inputs: [{ amount: 5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "copper_ore" }],
+	},
+	matter_to_copper_plate: {
+		inputs: [{ amount: 7.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "copper_plate" }],
+	},
+	matter_to_crude_oil: {
+		inputs: [{ amount: 6, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 100, resourceKey: "crude_oil" }],
+	},
+	matter_to_glass: {
+		inputs: [{ amount: 3.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "glass" }],
+	},
+	matter_to_imersite_powder: {
+		inputs: [{ amount: 3.3, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "imersite_powder" }],
+	},
+	matter_to_iron_ore: {
+		inputs: [{ amount: 5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "iron_ore" }],
+	},
+	matter_to_iron_plate: {
+		inputs: [{ amount: 7.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "iron_plate" }],
+	},
+	matter_to_matter_cube: {
+		inputs: [{ amount: 1000, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 1, resourceKey: "matter_cube" }],
+	},
+	matter_to_mineral_water: {
+		inputs: [{ amount: 5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 100, resourceKey: "mineral_water" }],
+	},
+	matter_to_plastic_bar: {
+		inputs: [{ amount: 6.6, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "plastic_bar" }],
+	},
+	matter_to_rare_metals: {
+		inputs: [{ amount: 14, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "rare_metals" }],
+	},
+	matter_to_raw_rare_metals: {
+		inputs: [{ amount: 8, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "raw_rare_metals" }],
+	},
+	matter_to_sand: {
+		inputs: [{ amount: 1.1, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "sand" }],
+	},
+	matter_to_silicon: {
+		inputs: [{ amount: 4.6, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "silicon" }],
+	},
+	matter_to_steel_plate: {
+		inputs: [{ amount: 17.2, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "steel_plate" }],
+	},
+	matter_to_stone: {
+		inputs: [{ amount: 3.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "stone" }],
+	},
+	matter_to_sulfur: {
+		inputs: [{ amount: 8, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "sulfur" }],
+	},
+	matter_to_uranium_238: {
+		inputs: [{ amount: 47.1, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "uranium_238" }],
+	},
+	matter_to_uranium_ore: {
+		inputs: [{ amount: 8, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "uranium_ore" }],
+	},
+	matter_to_water: {
+		inputs: [{ amount: 0.5, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 100, resourceKey: "water" }],
+	},
+	matter_to_wood: {
+		inputs: [{ amount: 2, resourceKey: "matter" }],
+		fabricators: ["matter_assembler"],
+		outputs: [{ amount: 10, resourceKey: "wood" }],
+	},
 	military_research_data: {
 		inputs: [
 			{ resourceKey: "submachine_gun" },

@@ -49,6 +49,12 @@ const KrastorioFabricator = {
 	greenhouse:{
 		name: "Greenhouse",
 	}
+	matter_assembler:{
+		name:"Matter Assembler"
+	},
+	matter_plant:{
+		name:"Matter Plant"
+	},
 	oil_refinery: {
 		name: "Oil Refinery",
 	},

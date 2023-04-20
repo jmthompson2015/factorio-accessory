@@ -76,6 +76,9 @@ ResourceReport.missingRawFlag = (myRecipes, myResources) => {
 
 	const reduceFunction2 = (accum, resourceKey) => {
 		const resource = myResources[resourceKey];
+		if (R.isNil(resource)) {
+			console.error(`Missing resource for key :${resourceKey}:`);
+		}
 		if (R.isNil(isRaw(resource))) {
 			return R.uniq(R.append(resourceKey, accum));
 		}

@@ -18,6 +18,7 @@ sips ${OPTIONS} -o ${OUTPUT_DIR}/ammonia.png ${INPUT_DIR2}/ammonia.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/automation-core.png ${INPUT_DIR3}/automation-core.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/automation-tech-card.png ${INPUT_DIR1}/automation-tech-card.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/basic-tech-card.png ${INPUT_DIR1}/basic-tech-card.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/biomass.png ${INPUT_DIR4}/biomass/biomass.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/blank-tech-card.png ${INPUT_DIR4}/blank-tech-card/blank-tech-card-1.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/charged-matter-stabilizer.png ${INPUT_DIR3}/charged-matter-stabilizer.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/chemical-tech-card.png ${INPUT_DIR1}/chemical-tech-card.png
@@ -47,6 +48,8 @@ sips ${OPTIONS} -o ${OUTPUT_DIR}/lithium-chloride.png ${INPUT_DIR4}/lithium-chlo
 sips ${OPTIONS} -o ${OUTPUT_DIR}/lithium-sulfur-battery.png ${INPUT_DIR3}/lithium-sulfur-battery.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/logistic-tech-card.png ${INPUT_DIR1}/logistic-tech-card.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/lubricant.png ${INPUT_DIR2}/lubricant.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/matter.png ${INPUT_DIR2}/matter.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-cube.png ${INPUT_DIR3}/matter-cube.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-research-data.png ${INPUT_DIR1}/matter-research-data.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-stabilizer.png ${INPUT_DIR3}/matter-stabilizer.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/matter-tech-card.png ${INPUT_DIR1}/matter-tech-card.png
@@ -61,6 +64,8 @@ sips ${OPTIONS} -o ${OUTPUT_DIR}/processing-unit.png ${INPUT_DIR3}/processing-un
 sips ${OPTIONS} -o ${OUTPUT_DIR}/production-tech-card.png ${INPUT_DIR1}/production-tech-card.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/quartz.png ${INPUT_DIR4}/quartz/quartz-1.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/rare-metals.png ${INPUT_DIR4}/rare-metals/rare-metals-1.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/raw-imersite.png ${INPUT_DIR4}/raw-imersite/raw-imersite.png
+sips ${OPTIONS} -o ${OUTPUT_DIR}/raw-rare-metals.png ${INPUT_DIR4}/raw-rare-metals/raw-rare-metals.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/sand.png ${INPUT_DIR4}/sand/sand-1.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/silicon.png ${INPUT_DIR4}/silicon/silicon-1.png
 sips ${OPTIONS} -o ${OUTPUT_DIR}/singularity-tech-card.png ${INPUT_DIR1}/singularity-tech-card.png

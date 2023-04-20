@@ -46,6 +46,11 @@ const KrastorioResource = {
 		name: "Basic Tech Card",
 		image: "icons/krastorio/basic-tech-card.png",
 	},
+	biomass: {
+		name: "Biomass",
+		image: "icons/krastorio/biomass.png",
+		isRaw: true,
+	},
 	blank_tech_card: {
 		name: "Blank Tech Card",
 		image: "icons/krastorio/blank-tech-card.png",
@@ -80,9 +85,21 @@ const KrastorioResource = {
 		name: "Copper Cable",
 		image: "icons/Copper_cable.png",
 	},
+	copper_ore: {
+		name: "Copper Ore",
+		image: "icons/Copper_ore.png",
+		isMap: true,
+		isRaw: true,
+	},
 	copper_plate: {
 		name: "Copper Plate",
 		image: "icons/krastorio/copper-plate.png",
+		isRaw: true,
+	},
+	crude_oil: {
+		name: "Crude Oil",
+		image: "icons/Crude_oil.png",
+		isMap: true,
 		isRaw: true,
 	},
 	electric_engine_unit: {
@@ -183,6 +200,12 @@ const KrastorioResource = {
 		name: "Iron Gear Wheel",
 		image: "icons/krastorio/iron-gear-wheel.png",
 	},
+	iron_ore: {
+		name: "Iron Ore",
+		image: "icons/Iron_ore.png",
+		isMap: true,
+		isRaw: true,
+	},
 	iron_plate: {
 		name: "Iron Plate",
 		image: "icons/krastorio/iron-plate.png",
@@ -223,6 +246,15 @@ const KrastorioResource = {
 	lubricant: {
 		name: "Lubricant",
 		image: "icons/krastorio/lubricant.png",
+		isRaw: true,
+	},
+	matter: {
+		name: "Matter",
+		image: "icons/krastorio/matter.png",
+	},
+	matter_cube: {
+		name: "Matter Cube",
+		image: "icons/krastorio/matter-cube.png",
 		isRaw: true,
 	},
 	matter_research_data: {
@@ -310,6 +342,18 @@ const KrastorioResource = {
 		image: "icons/krastorio/rare-metals.png",
 		isRaw: true,
 	},
+	raw_imersite: {
+		name: "Raw Imersite",
+		image: "icons/krastorio/raw-imersite.png",
+		isMap: true,
+		isRaw: true,
+	},
+	raw_rare_metals: {
+		name: "Raw Rare Metals",
+		image: "icons/krastorio/raw-rare-metals.png",
+		isMap: true,
+		isRaw: true,
+	},
 	rocket_fuel: {
 		name: "Rocket Fuel",
 		image: "icons/Rocket_fuel.png",
@@ -395,6 +439,12 @@ const KrastorioResource = {
 	uranium_238: {
 		name: "Uranium-238",
 		image: "icons/Uranium-238.png",
+		isRaw: true,
+	},
+	uranium_ore: {
+		name: "Uranium Ore",
+		image: "icons/Uranium_ore.png",
+		isMap: true,
 		isRaw: true,
 	},
 	utility_tech_card: {

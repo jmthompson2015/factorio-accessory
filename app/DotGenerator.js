@@ -2,6 +2,8 @@ import * as R from "../node_modules/ramda/es/index.js";
 
 import FileWriter from "../utility/FileWriter.js";
 
+import ResourceKeyVisitor from "../model/ResourceKeyVisitor.js";
+
 const HEADER = `digraph {\nbgcolor=lightgray\n`;
 const FOOTER = "}\n";
 
@@ -75,46 +77,21 @@ class DotGenerator {
 		return R.reduce(reduceFunction1, "", keys);
 	}
 
-	getResourceKeys(resourceKey, isBusStop, isRawStop) {
-		let answer = [resourceKey];
-		if (
-			(isBusStop && this._resourceFunction.isBus(resourceKey)) ||
-			(isRawStop && this._resourceFunction.isRaw(resourceKey))
-		) {
-			return answer;
-		}
-		const recipeKeys = this._recipeFunction.findByOutput(resourceKey);
+	getResourceKeys(recipeKey, isBusStop, isRawStop) {
+		const outputKeys = this._recipeFunction.outputKeys(recipeKey);
 
-		if (recipeKeys) {
-			const reduceFunction2 = (accum2, recipeKey) => {
-				const inputKeys = R.uniq(
-					this._recipeFunction.inputKeys(recipeKey)
-				);
-				const reduceFunction1 = (accum1, key1) => {
-					const resource = this._resourceFunction.resource(key1);
-					const keys = this.getResourceKeys(
-						key1,
-						isBusStop,
-						isRawStop
-					);
-					return R.uniq(R.concat(accum1, keys));
-				};
-				const moreKeys = R.reduce(
-					reduceFunction1,
-					inputKeys,
-					inputKeys
-				);
+		const visitor = new ResourceKeyVisitor(
+			this._recipeFunction,
+			this._resourceFunction,
+			isBusStop,
+			isRawStop
+		);
+		this._recipeFunction.accept(recipeKey, visitor);
 
-				return R.uniq(R.concat(accum2, moreKeys));
-			};
-
-			return R.uniq(R.reduce(reduceFunction2, answer, recipeKeys));
-		}
-
-		return answer;
+		return R.uniq(R.concat(outputKeys, visitor.result));
 	}
 
-	generate(resourceKeys, flags = {}) {
+	generate(recipeKeys, flags = {}) {
 		const {
 			isBusBox,
 			isBusStop,
@@ -125,10 +102,14 @@ class DotGenerator {
 			isRawStop,
 		} = flags;
 		const reduceFunction1 = (accum, key) => accum + `${key}; `;
+		const reduceFunction3 = (accum, recipeKey) => {
+			const outputKeys = this._recipeFunction.outputKeys(recipeKey);
+			return accum + R.reduce(reduceFunction1, "", outputKeys);
+		};
 		let allKeys0 = [];
 		let leafString = "";
 
-		if (Array.isArray(resourceKeys)) {
+		if (Array.isArray(recipeKeys)) {
 			const reduceFunction2 = (accum, key) =>
 				R.uniq(
 					R.concat(
@@ -136,11 +117,12 @@ class DotGenerator {
 						this.getResourceKeys(key, isBusStop, isRawStop)
 					)
 				);
-			allKeys0 = R.reduce(reduceFunction2, [], resourceKeys);
-			leafString = R.reduce(reduceFunction1, "", resourceKeys);
+			allKeys0 = R.reduce(reduceFunction2, [], recipeKeys);
+			leafString = R.reduce(reduceFunction3, "", recipeKeys);
 		} else {
-			allKeys0 = this.getResourceKeys(resourceKeys, isBusStop, isRawStop);
-			leafString = resourceKeys;
+			allKeys0 = this.getResourceKeys(recipeKeys, isBusStop, isRawStop);
+			const outputKeys = this._recipeFunction.outputKeys(recipeKeys);
+			leafString = R.reduce(reduceFunction1, "", outputKeys);
 		}
 		const allKeys = allKeys0.sort();
 

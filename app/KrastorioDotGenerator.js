@@ -46,13 +46,7 @@ generate("singularity_tech_card", techFlags);
 // ////////////////////////////////////////////////////////////////////////////
 {
 	const maRecipeKeys = recipeFunction.findByFabricator("matter_assembler");
-	const reduceFunction = (accum, recipeKey) => {
-		const outputKeys = recipeFunction.outputKeys(recipeKey);
-		return R.uniq(R.concat(accum, outputKeys));
-	};
-	const resourceKeys = R.reduce(reduceFunction, [], maRecipeKeys);
-
-	generate(resourceKeys, {}, "matter_assembler.dot");
+	generate(maRecipeKeys, {}, "matter_assembler.dot");
 }
 
 generate(
@@ -69,15 +63,6 @@ generate(
 );
 
 {
-	const reduceFunction = (accum, recipeKey) => {
-		const outputKeys = recipeFunction.outputKeys(recipeKey);
-		return R.uniq(R.concat(accum, outputKeys));
-	};
-	const resourceKeys = R.reduce(
-		reduceFunction,
-		[],
-		Object.keys(KrastorioRecipe)
-	);
-
-	generate(resourceKeys, {}, "everything.dot");
+	const recipeKeys = Object.keys(KrastorioRecipe);
+	generate(recipeKeys, {}, "everything.dot");
 }

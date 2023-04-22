@@ -137,5 +137,34 @@ QUnit.test("recipe() Accumulator", (assert) => {
   assert.equal(result.outputs.length, 1);
 });
 
+QUnit.test("visitor depth first", (assert) => {
+  // Setup.
+  const recipeFunction = new RecipeFunction(FactorioRecipe);
+  const recipeKey = "accumulator";
+  let result = [];
+
+  const visitor = {};
+  visitor.visit = (recipeKey) => {
+    const inputKeys = recipeFunction.inputKeys(recipeKey);
+    if (inputKeys) {
+      R.forEach((key) => {
+        result = R.append(key, result);
+        recipeFunction.accept(key, visitor);
+      }, inputKeys);
+    }
+  };
+
+  // Run.
+  recipeFunction.accept(recipeKey, visitor);
+
+  // Verify.
+  assert.ok(result, `result = ${JSON.stringify(result)}`);
+  assert.equal(result.length, 14, `result.length = ${result.length}`);
+  const head = R.head(result);
+  assert.equal(head, "battery", `head = ${head}`);
+  const last = R.last(result);
+  assert.equal(last, "iron_ore", `last = ${last}`);
+});
+
 const RecipeFunctionTest = {};
 export default RecipeFunctionTest;

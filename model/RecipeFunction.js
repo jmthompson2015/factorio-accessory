@@ -9,9 +9,14 @@ class RecipeFunction {
 		return this._myRecipes;
 	}
 
+	accept(recipeKey, visitor) {
+		visitor.visit(recipeKey);
+	}
+
 	fabricatorKeys(recipeKey) {
 		const recipe = this.recipe(recipeKey);
-		return recipe.fabricators;
+
+		return recipe ? recipe.fabricators : [];
 	}
 
 	findByFabricator(fabricatorKey) {
@@ -43,12 +48,16 @@ class RecipeFunction {
 
 	inputKeys(recipeKey) {
 		const recipe = this.recipe(recipeKey);
-		return R.map((input) => input.resourceKey, recipe.inputs);
+		const mapFunction = (input) => input.resourceKey;
+
+		return recipe ? R.map(mapFunction, recipe.inputs) : [];
 	}
 
 	outputKeys(recipeKey) {
 		const recipe = this.recipe(recipeKey);
-		return R.map((output) => output.resourceKey, recipe.outputs);
+		const mapFunction = (output) => output.resourceKey;
+
+		return recipe ? R.map(mapFunction, recipe.outputs) : [];
 	}
 
 	recipe(recipeKey) {

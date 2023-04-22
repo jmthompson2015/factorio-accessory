@@ -111,8 +111,7 @@ generate(
 		"heat_pipe",
 		"nuclear_reactor",
 		"steam_turbine",
-		"uranium_235",
-		"uranium_238",
+		"uranium_processing",
 	],
 	{
 		isLeafSame: true,
@@ -157,16 +156,7 @@ generate(
 );
 
 {
-	const mapResourceKey = (output) => output.resourceKey;
-	const reduceFunction = (accum, recipe) => {
-		const outputKeys = R.map(mapResourceKey, recipe.outputs);
-		return R.uniq(R.concat(accum, outputKeys));
-	};
-	const resourceKeys = R.reduce(
-		reduceFunction,
-		[],
-		Object.values(FactorioRecipe)
-	);
+	const recipeKeys = Object.keys(FactorioRecipe);
 
-	generate(resourceKeys, {}, "everything.dot");
+	generate(recipeKeys, {}, "everything.dot");
 }

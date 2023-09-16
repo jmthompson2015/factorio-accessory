@@ -12,6 +12,8 @@ dot -Tpng dot/krastorio/matter_tech_card.dot -o dist/krastorio/matter_tech_card.
 dot -Tpng dot/krastorio/advanced_tech_card.dot -o dist/krastorio/advanced_tech_card.png
 dot -Tpng dot/krastorio/singularity_tech_card.dot -o dist/krastorio/singularity_tech_card.png
 
+dot -Tpng dot/krastorio/tech_cards_end_game.dot -o dist/krastorio/tech_cards_end_game.png
+
 dot -Tpng dot/krastorio/matter_assembler.dot -o dist/krastorio/matter_assembler.png
 dot -Tpng dot/krastorio/transport_belts.dot -o dist/krastorio/transport_belts.png
 

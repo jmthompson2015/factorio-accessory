@@ -43,6 +43,19 @@ generate("matter_tech_card", techFlags);
 generate("advanced_tech_card", techFlags);
 generate("singularity_tech_card", techFlags);
 
+generate(
+	[
+		"production_tech_card",
+		"utility_tech_card",
+		"optimization_tech_card",
+		"matter_tech_card",
+		"advanced_tech_card",
+		"singularity_tech_card",
+	],
+	{ isLeafSame: true },
+	"tech_cards_end_game.dot"
+);
+
 // ////////////////////////////////////////////////////////////////////////////
 {
 	const maRecipeKeys = recipeFunction.findByFabricator("matter_assembler");

@@ -122,10 +122,9 @@ generate(
 );
 
 generate(
-	["lubricant", "plastic_bar", "sulfuric_acid"],
+	["lubricant", "plastic_bar","rocket_fuel", "sulfuric_acid"],
 	{
 		isLeafSame: true,
-		isRawBox: true,
 	},
 	"oil_processing.dot"
 );
